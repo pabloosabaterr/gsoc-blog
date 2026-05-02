@@ -1,4 +1,4 @@
-baseURL = 'https://pabloosabaterr.github.io/gsoc-blog/'
+baseURL = 'https://pablosabater.dev/'
 title = "Pablo's GSoC at Git Blog"
 theme = 'PaperMod'
 paginate = 5
@@ -15,7 +15,7 @@ paginate = 5
 
 [params.homeInfoParams]
   Title = "Hi, I'm Pablo :)"
-  Content = '<img src="/gsoc-blog/me.jpg" style="width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:1rem;"><br>Second year CS student at University of Murcia, Spain. This blog documents my **Google Summer of Code 2026** journey working on **Git**, mentored by [Karthic](https://www.linkedin.com/in/karthik-nayak/) who works at [Gitlab](https://www.linkedin.com/company/gitlab-com/) and [Chandra](https://www.linkedin.com/in/chand-ra/).'
+  Content = '<img src="me.jpg" style="width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:1rem;"><br>Second year CS student at University of Murcia, Spain. This blog documents my **Google Summer of Code 2026** journey working on **Git**, mentored by [Karthik](https://www.linkedin.com/in/karthik-nayak/) who works at [Gitlab](https://www.linkedin.com/company/gitlab-com/) and [Chandra](https://www.linkedin.com/in/chand-ra/).'
 
 [[params.socialIcons]]
   name = 'github'

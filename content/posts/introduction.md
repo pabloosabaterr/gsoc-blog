@@ -8,7 +8,7 @@ Hi!
 
 My name is Pablo, this is my first time blogging, so... don't expect amazing writing
 skills but I'll do my best to try to share my experience through my journey at GSoC
-Git 2026 mentored by [Karthic](https://www.linkedin.com/in/karthik-nayak/) 
+Git 2026 mentored by [Karthik](https://www.linkedin.com/in/karthik-nayak/) 
 who works at [Gitlab](https://www.linkedin.com/company/gitlab-com/) and
 [Chandra](https://www.linkedin.com/in/chand-ra/).
 

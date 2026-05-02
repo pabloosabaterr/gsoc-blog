@@ -84,7 +84,7 @@ UTC+2 after the clocks change in spring). Once the results were out, and I recei
 the email where it said that I was accepted, I was at the gym and I probably had
 the best workout of my life. I told my friends and family about it, I was
 really really happy, the next day I sent an email to my mentors 
-[Karthic](https://www.linkedin.com/in/karthik-nayak/) who works at 
+[Karthik](https://www.linkedin.com/in/karthik-nayak/) who works at 
 [Gitlab](https://www.linkedin.com/company/gitlab-com/) and 
 [Chandra](https://www.linkedin.com/in/chand-ra/) to thank them for selecting me
 and asking about the next steps which brings us here writing this blog post.
