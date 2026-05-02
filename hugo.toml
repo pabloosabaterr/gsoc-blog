@@ -1,0 +1,50 @@
+baseURL = 'https://pabloosabaterr.github.io/gsoc-blog/'
+title = "Pablo's GSoC at Git Blog"
+theme = 'PaperMod'
+paginate = 5
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[params]
+  author = 'Pablo Sabater'
+  description = 'My Git Google Summer of Code 2026 blog'
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+
+[params.homeInfoParams]
+  Title = "Hi, I'm Pablo :)"
+  Content = '<img src="/gsoc-blog/me.jpg" style="width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:1rem;"><br>Second year CS student at University of Murcia, Spain. This blog documents my **Google Summer of Code 2026** journey working on **Git**, mentored by [Karthic](https://www.linkedin.com/in/karthik-nayak/) who works at [Gitlab](https://www.linkedin.com/company/gitlab-com/) and [Chandra](https://www.linkedin.com/in/chand-ra/).'
+
+[[params.socialIcons]]
+  name = 'github'
+  url = 'https://github.com/pabloosabaterr'
+
+[[params.socialIcons]]
+  name = 'linkedin'
+  url = 'https://www.linkedin.com/in/pablosabaterjimenez/'
+
+[[params.socialIcons]]
+  name = 'email'
+  url = 'mailto:pabloosabaterr@gmail.com'
+
+[[menu.main]]
+  name = 'Blog'
+  url = '/posts/'
+  weight = 1
+
+[[menu.main]]
+  name = 'About'
+  url = '/about/'
+  weight = 2
+
+[[menu.main]]
+  name = 'Proposal'
+  url = '/proposal.pdf'
+  weight = 3
+
+[[menu.main]]
+  name = 'GitHub repo'
+  url = 'https://github.com/pabloosabaterr/git'
+  weight = 4
