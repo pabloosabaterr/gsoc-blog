@@ -1,7 +1,7 @@
 +++
 date = '2026-05-05T15:52:13+02:00'
 draft = false
-title = 'Week 1: Community Bonding'
+title = 'GSoC Week 1 Community Bonding'
 +++
 
 Last april 30th I started my GSoC at Git, and it's been a few days already.
