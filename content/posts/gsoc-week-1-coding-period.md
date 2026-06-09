@@ -1,7 +1,7 @@
 +++
 date = '2026-06-02T14:51:28+02:00'
 draft = false
-title = 'Gsoc Week 1 Coding Period'
+title = 'GSoC Week 1 Coding Period'
 +++
 
 *— "A donde fueres, haz lo que vieres"*
