@@ -189,7 +189,7 @@ be held.
 These last weeks I've been busy with the paperwork of Erasmus because my next
 year I'll be studying abroad at Lisboa for a whole year.
 
-I also want to start grinding LeetCodes to get better at DSA and algorithms.
+I also want to start grinding LeetCodes to get better at DSA.
 
 ---
 
