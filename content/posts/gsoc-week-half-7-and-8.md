@@ -74,7 +74,7 @@ The rest of the week was dedicated mainly to two series:
    However, the server side wasn't ready for this. it was designed to always
    work with at least one requested attribute ("size" in this case). Because of
    that, I had to add a new patch to get the server side behaving how we want.
-   Now the series is a mix of server- and client-side changes, sadly.
+   Now the series is a mix of server-side and client-side changes, sadly.
 
    As of today, I spent the whole
    day (and by whole day, I mean *the whole day*, haha) reviewing and cleaning up
