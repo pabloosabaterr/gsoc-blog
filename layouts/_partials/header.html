@@ -2,6 +2,7 @@
   <a class="brand" href="{{ "/" | relURL }}"{{ if .IsHome }} aria-current="page"{{ end }}>{{ site.Title }}</a>
   <nav aria-label="Main">
     {{- range site.Menus.main }}
+    {{- if and .Page (eq .Page.Kind "section") (not .Page.RegularPages) }}{{ continue }}{{ end }}
     {{- $active := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
     {{- if and (not $active) .Page }}{{ $active = or (eq $.Section .Page.Section) (and (eq $.Section "tags") (eq .Page.Section "posts")) }}{{ if eq .Page.Kind "page" }}{{ $active = eq $.RelPermalink .Page.RelPermalink }}{{ end }}{{ end }}
     <a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>

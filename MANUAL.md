@@ -38,6 +38,15 @@ El sitio también se reconstruye solo cada mañana, para que los datos de GitHub
 
 ## 2. Crear un post
 
+Hay dos secciones para escribir:
+
+- **Writing** (`content/posts/`): programación, open source, proyectos.
+- **Life** (`content/life/`): todo lo que no es código. Erasmus, viajes, personas, lo que estés viviendo.
+
+Las dos usan el mismo diseño de lectura. En la home salen por separado, y Life tiene su propia entrada en el menú, que aparece sola en cuanto publicas el primer post de Life.
+
+### Writing
+
 ```sh
 hugo new posts/mi-post/index.md
 ```
@@ -46,7 +55,15 @@ hugo new posts/mi-post/index.md
 - Usa una carpeta (`mi-post/index.md`) si el post lleva imágenes: las imágenes van dentro de esa carpeta.
 - Si no lleva imágenes, también vale un archivo suelto: `hugo new posts/mi-post.md`.
 
-El post se crea como borrador (`draft = true`). **No se publica hasta que lo cambies a `draft = false`**, aunque hagas push.
+### Life
+
+```sh
+hugo new life/mi-post/index.md
+```
+
+Sale en `pablosabater.dev/life/mi-post/`. Funciona igual que un post de Writing: mismas cabeceras, imágenes, notas, círculos… La única diferencia es que no se asigna a proyectos. Tienes un borrador empezado en `content/life/studying-at-nova/index.md`.
+
+En los dos casos, el post se crea como borrador (`draft = true`). **No se publica hasta que lo cambies a `draft = false`**, aunque hagas push.
 
 ---
 
@@ -65,7 +82,6 @@ projects = ['Orn']
 epigraph = 'Poco a poco se anda lejos'
 epigraph_translation = 'Little by little, one goes far.'
 toc = false
-style = 'photos'
 image = 'portada.jpg'
 +++
 ```
@@ -77,11 +93,10 @@ image = 'portada.jpg'
 | `draft` | `true` = borrador, no se publica. `false` = se publica. |
 | `description` | Resumen de una frase. Si lo dejas vacío, se usa el principio del post. |
 | `tags` | Etiquetas en minúscula, de 1 a 3. Cada una tiene su página: `/tags/orn/`. |
-| `projects` | Proyectos a los que pertenece el post. Usa el título exacto del proyecto: `['Orn']`, `['Git']`. Puede estar en varios. |
+| `projects` | Solo en Writing. Proyectos a los que pertenece el post. Usa el título exacto del proyecto: `['Orn']`, `['Git']`. Puede estar en varios. |
 | `epigraph` | El refrán que sale arriba, en rojo y en cursiva. Sin punto final, lo pone el sitio. |
 | `epigraph_translation` | Traducción del refrán, debajo en gris. |
 | `toc` | El índice (“Contents”) sale solo si el post tiene 2 o más secciones `##`. Pon `toc = false` para quitarlo en un post concreto. |
-| `style` | `'photos'` convierte el post en un post de fotos (ver sección 6). |
 | `image` | Imagen propia para cuando se comparte el enlace. Si no la pones, se genera una tarjeta automática con el título. |
 
 ---
@@ -193,11 +208,9 @@ static int parse_stmt(struct parser *p);
 
 ---
 
-## 6. Posts de fotos
+## 6. Varias fotos juntas
 
-Pon `style = 'photos'` en la cabecera. Las fotos salen más anchas que el texto y, en móvil, a todo el ancho. En las listas el post se marca como “photos”.
-
-Para varias fotos en cuadrícula:
+En cualquier post, de Writing o de Life, puedes poner fotos en cuadrícula:
 
 ```md
 {{</* gallery */>}}
@@ -207,13 +220,11 @@ Para varias fotos en cuadrícula:
 {{</* /gallery */>}}
 ```
 
-(De nuevo, en tus posts sin `/*` ni `*/`.)
+(En tus posts, sin `/*` ni `*/`.)
 
 - Una foto por línea dentro de la galería.
 - Con 2 fotos salen en 2 columnas; con 3, en 3 columnas en pantalla ancha.
 - En la galería las fotos se recortan a la misma proporción; al pulsarlas se ven enteras.
-
-Tienes un borrador empezado en `content/posts/studying-at-nova/index.md`.
 
 ---
 
@@ -271,7 +282,7 @@ Los proyectos salen también en la home, encima de “Recent writing”.
 | Email, GitHub, LinkedIn del pie | `hugo.toml`, `email`, `github`, `linkedin` |
 | Página About | `content/about.md` |
 | Foto de About | `assets/me.jpg` (se recorta cuadrada sola) |
-| Texto de Projects y Writing | `content/projects/_index.md`, `content/posts/_index.md` |
+| Texto de Writing, Life y Projects | `content/posts/_index.md`, `content/life/_index.md`, `content/projects/_index.md` |
 | Página 404 | `layouts/404.html` |
 
 En la home, “Pablo” sale en rojo porque está escrito como `<span class="name">Pablo</span>`. Puedes usar `==texto==` en la presentación para el subrayado de rotulador.
@@ -307,12 +318,12 @@ En la home, “Pablo” sale en rojo porque está escrito como `<span class="nam
 ## 11. Dónde está cada cosa (por si quieres tocar el diseño)
 
 ```text
-content/        textos: posts, proyectos, about, home
+content/        textos: posts, life, proyectos, about, home
 layouts/        plantillas HTML
 assets/css/     main.css: colores, tipografía, todo el estilo
 assets/js/      scripts pequeños: índice, copiar, ampliar, tarjetas de enlaces
 static/fonts/   tipografías (Source Serif 4, IBM Plex Mono, Fraunces)
-archetypes/     plantilla que usa `hugo new`
+archetypes/     plantillas que usa `hugo new` (default.md y life.md)
 hugo.toml       configuración y datos generales
 ```
 

@@ -1,11 +1,12 @@
 {{ define "main" }}
-{{- if eq .Section "posts" }}<div class="progress" aria-hidden="true"></div>{{ end }}
+{{- $isPost := in (slice "posts" "life") .Section }}
+{{- if $isPost }}<div class="progress" aria-hidden="true"></div>{{ end }}
 <article class="post{{ with .Params.style }} style-{{ . }}{{ end }}">
-  {{- if eq .Section "posts" }}
+  {{- if $isPost }}
   <header class="post-head dotted-head">
     <h1>{{ .Title }}</h1>
     <p class="meta">
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+      {{- if eq .Section "life" }}<a href="{{ .CurrentSection.RelPermalink }}">Life</a> · {{ end }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
       {{- range .GetTerms "projects" }} · <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
       {{- range .GetTerms "tags" }} · <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
     </p>
@@ -22,7 +23,7 @@
   <h1 class="page-title">{{ .Title }}</h1>
   {{- end }}
 
-  {{- $showToc := and (ne .Params.toc false) (eq .Section "posts") (ge (len (.Fragments.Identifiers)) 2) }}
+  {{- $showToc := and (ne .Params.toc false) $isPost (ge (len (.Fragments.Identifiers)) 2) }}
   {{- if $showToc }}
   <aside class="toc-side" aria-label="Contents">
     <nav class="toc-rail">
@@ -37,7 +38,7 @@
     {{ .Content }}
   </div>
 
-  {{- if eq .Section "posts" }}
+  {{- if $isPost }}
   <footer class="post-foot">
     {{- range .GetTerms "projects" }}
     {{- $list := .Pages.ByDate }}
@@ -51,7 +52,7 @@
       </ol>
     </details>
     {{- end }}
-    {{- $all := (where site.RegularPages "Section" "posts").ByDate }}
+    {{- $all := (where site.RegularPages "Section" .Section).ByDate }}
     {{- with .GetTerms "projects" }}{{ $all = (index . 0).Pages.ByDate }}{{ end }}
     {{- $prev := false }}{{ $next := false }}
     {{- range $k, $p := $all }}{{ if eq $p $ }}{{ if gt $k 0 }}{{ $prev = index $all (sub $k 1) }}{{ end }}{{ if lt (add $k 1) (len $all) }}{{ $next = index $all (add $k 1) }}{{ end }}{{ end }}{{ end }}
@@ -67,7 +68,7 @@
   </footer>
   {{- end }}
 </article>
-{{- if eq .Section "posts" }}
+{{- if $isPost }}
 {{- $pjs := resources.Get "js/post.js" | minify | fingerprint }}
 <script src="{{ $pjs.RelPermalink }}" integrity="{{ $pjs.Data.Integrity }}" defer></script>
 {{- end }}

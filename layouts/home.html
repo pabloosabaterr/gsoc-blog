@@ -20,5 +20,11 @@
 <h2 class="section-label">Recent writing</h2>
 {{ partial "post-list.html" (dict "pages" (first (site.Params.recentPosts | default 15) $posts.ByDate.Reverse) "tags" true) }}
 <a class="more" href="{{ "posts/" | relURL }}">All writing <span class="arr" aria-hidden="true">→</span></a>
+{{ $life := where site.RegularPages "Section" "life" }}
+{{- with $life }}
+<h2 class="section-label">Life</h2>
+{{ partial "post-list.html" (dict "pages" (first 5 .ByDate.Reverse) "tags" true) }}
+<a class="more" href="{{ "life/" | relURL }}">All of it <span class="arr" aria-hidden="true">→</span></a>
+{{- end }}
 
 {{ end }}

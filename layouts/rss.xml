@@ -1,5 +1,5 @@
 {{- $pages := slice }}
-{{- if .IsHome }}{{ $pages = where site.RegularPages "Section" "posts" }}{{ else }}{{ $pages = .RegularPages }}{{ end }}
+{{- if .IsHome }}{{ $pages = where site.RegularPages "Section" "in" (slice "posts" "life") }}{{ else }}{{ $pages = .RegularPages }}{{ end }}
 {{- $pages = $pages.ByDate.Reverse }}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 {{ printf "<?xml-stylesheet type=\"text/xsl\" href=\"%s\"?>" "/rss.xsl" | safeHTML }}

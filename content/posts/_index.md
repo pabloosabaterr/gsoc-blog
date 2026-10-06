@@ -7,4 +7,4 @@ description = 'Everything Pablo Sabater has written, newest first.'
   publishResources = false
 +++
 
-Everything I've written here, newest first.
+Code, open source and the things I build, newest first.
