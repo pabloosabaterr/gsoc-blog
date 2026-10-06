@@ -1,0 +1,21 @@
+{{ define "main" }}
+<h1 class="page-title">{{ .Title }}</h1>
+{{ with .Content }}<div class="page-lede">{{ . }}</div>{{ end }}
+<ul class="projects">
+  {{- range .Pages.ByWeight }}
+  {{- $n := len .Pages }}
+  <li class="project">
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <p class="meta">
+      {{- with .Params.status }}<span class="status">{{ . }}</span>{{ end }}
+      {{- with .Params.since }} · since {{ . }}{{ end }}
+      {{- if $n }} · {{ $n }} {{ cond (eq $n 1) "post" "posts" }}{{ end }}
+    </p>
+    {{ with .Params.summary }}<p class="summary">{{ . | markdownify }}</p>{{ end }}
+    {{- with .Params.links }}
+    <p class="links">{{ range $i, $l := . }}{{ if $i }} · {{ end }}<a href="{{ $l.url }}">{{ $l.name }}</a>{{ end }}</p>
+    {{- end }}
+  </li>
+  {{- end }}
+</ul>
+{{ end }}

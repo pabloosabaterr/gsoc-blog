@@ -1,8 +1,8 @@
 +++
 title = 'GSoC Week 1 Community Bonding'
 date = 2026-05-05T15:52:13+02:00
-tags = ['git', 'open-source']
-series = ['GSoC 2026']
+tags = ['gsoc', 'open-source']
+projects = ['Git']
 +++
 
 Last april 30th I started my GSoC at Git, and it's been a few days already.

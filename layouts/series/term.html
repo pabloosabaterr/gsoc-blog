@@ -1,7 +1,0 @@
-{{ define "main" }}
-<p class="meta">Series</p>
-<h1 class="page-title">{{ .Title }}</h1>
-{{ with .Content }}<div class="page-lede">{{ . }}</div>{{ end }}
-<h2 class="section-label">In order</h2>
-{{ partial "post-list.html" (dict "pages" .Pages.ByDate "tags" false) }}
-{{ end }}

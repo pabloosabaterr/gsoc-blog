@@ -16,7 +16,7 @@ about that, and about anything else I want to remember.
 
 ## Things I've made
 
-**[Orn](https://github.com/pabloosabaterr/Orn-rework)** is a systems language
+**[Orn](/projects/orn/)** is a systems language
 where every type is a range. There are no built-in types: a value is described
 by the set of integers it can hold, and the compiler tracks that set through the
 program. Inside `if i < 10`, a `0..1000` becomes `0..9` at compile time, with no
@@ -26,7 +26,7 @@ the range you declared, and names like `u8` are just standard library aliases fo
 [Orn Book](https://pabloosabaterr.github.io/Orn-rework/) has the grammar and the
 current design.
 
-**Git patches**, from my [GSoC 2026](/series/gsoc-2026/) work on the object-info
+**[Git patches](/projects/git/)**, from my GSoC 2026 work on the object-info
 protocol and graph rendering. The [final report](/posts/gsoc-2026-final-report/)
 sums it up.
 

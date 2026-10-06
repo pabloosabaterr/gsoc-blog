@@ -323,8 +323,8 @@ figcaption { margin-top: .6rem; text-align: center; color: var(--muted); font-si
 
 /* ---------- post footer ---------- */
 .post-foot { margin-top: 3.5rem; padding-top: 1.4rem; border-top: 1px solid var(--rule); display: grid; gap: 1.6rem; }
-.series-note { color: var(--muted); font-size: .92rem; margin: 0; }
-.series-note a { color: var(--fg); }
+
+
 .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 .pager a { text-decoration: none; display: grid; gap: .15rem; min-width: 0; }
 .pager a:hover { color: var(--fg); }
@@ -401,3 +401,57 @@ figure:hover img { filter: saturate(1.08) contrast(1.02); }
 .pager .t, .pager .k { justify-self: start; }
 .pager .next .t, .pager .next .k { justify-self: end; }
 @media (max-width: 639px) { .pager .next .t, .pager .next .k { justify-self: start; } }
+
+/* ---------- projects ---------- */
+.status { color: var(--accent); }
+.projects { list-style: none; padding: 0; margin: 2.6rem 0 0; display: grid; gap: 2.4rem; }
+.project h2 { margin: 0 0 .3rem; font-family: var(--display); font-weight: 400; font-size: 1.5rem; line-height: 1.2; }
+.project h2 a { color: var(--fg); }
+.project h2 a:hover { color: var(--accent); }
+.project .summary { margin: .55rem 0 0; max-width: var(--reading); }
+.project .links { margin: .4rem 0 0; font-size: .9rem; color: var(--muted); }
+.project .links a { color: var(--muted); text-decoration-color: var(--rule); }
+.project .links a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+.project-meta { margin-top: .2rem; }
+.project-meta a { color: var(--accent) !important; }
+.project-body { margin: 2.2rem 0 0; max-width: var(--reading); margin-inline: 0; }
+.empty { color: var(--muted); font-style: italic; }
+
+/* Playlist on a project page: numbered like tracks. */
+.playlist { counter-reset: track; }
+.playlist li { grid-template-columns: 2rem 6.8rem minmax(0, 1fr); counter-increment: track; }
+.playlist li::before {
+  content: counter(track, decimal-leading-zero);
+  color: var(--accent); opacity: .7; font-size: .85rem; font-variant-numeric: lining-nums tabular-nums;
+}
+@media (max-width: 639px) {
+  .playlist li { grid-template-columns: 2rem minmax(0, 1fr); }
+  .playlist li time { grid-column: 2; }
+  .playlist li a { grid-column: 2; }
+}
+
+/* Playlist box at the end of a post. */
+.playlist-box { border-left: 2px solid var(--mark); padding: .2rem 0 .2rem 1rem; }
+.playlist-box summary { cursor: pointer; list-style: none; color: var(--muted); font-size: .92rem; }
+.playlist-box summary::-webkit-details-marker { display: none; }
+.playlist-box summary .k { color: var(--accent); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; margin-right: .3rem; }
+.playlist-box summary a { color: var(--fg); font-weight: 600; }
+.playlist-mini { margin: .7rem 0 .2rem; padding-left: 1.6rem; font-size: .9rem; display: grid; gap: .25rem; }
+.playlist-mini ::marker { color: var(--accent); font-variant-numeric: lining-nums tabular-nums; }
+.playlist-mini a { text-decoration: none; color: var(--muted); }
+.playlist-mini a:hover { color: var(--fg); text-decoration: underline; text-decoration-color: var(--accent); }
+.playlist-mini .current { font-weight: 600; }
+.playlist-mini .current span {
+  background: linear-gradient(to bottom, transparent 45%, var(--mark) 45%, var(--mark) 94%, transparent 94%);
+}
+.project-body .prose > .highlight, .project-body .prose > pre, .project-body .prose > figure { margin-inline: 0; }
+@media (max-width: 639px) {
+  .project-body .prose > .highlight, .project-body .prose > pre { margin-inline: calc(-1 * var(--gutter)); }
+}
+.project h2 a {
+  text-decoration: none;
+  background-image: linear-gradient(var(--mark), var(--mark)); background-repeat: no-repeat;
+  background-position: 0 88%; background-size: 0% .45em;
+  transition: background-size .35s cubic-bezier(.2, .7, .2, 1), color .2s;
+}
+.project h2 a:hover { background-size: 100% .45em; color: var(--fg); }

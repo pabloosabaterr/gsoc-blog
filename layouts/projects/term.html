@@ -1,0 +1,26 @@
+{{ define "main" }}
+<p class="meta"><a href="{{ .Parent.RelPermalink }}">Projects</a></p>
+<h1 class="page-title">{{ .Title }}</h1>
+<p class="meta project-meta">
+  {{- with .Params.status }}<span class="status">{{ . }}</span>{{ end }}
+  {{- with .Params.since }} · since {{ . }}{{ end }}
+  {{- range .Params.links }} · <a href="{{ .url }}">{{ .name }}</a>{{ end }}
+</p>
+<div class="post project-body">
+  <div class="prose">{{ .Content }}</div>
+</div>
+{{ $posts := .Pages.ByDate }}
+<h2 class="section-label">Playlist{{ with $posts }} · {{ len . }} {{ cond (eq (len .) 1) "post" "posts" }}{{ end }}</h2>
+{{- if $posts }}
+<ol class="posts playlist">
+  {{- range $posts }}
+  <li>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </li>
+  {{- end }}
+</ol>
+{{- else }}
+<p class="empty">No posts yet. The first one is on its way.</p>
+{{- end }}
+{{ end }}

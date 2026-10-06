@@ -1,8 +1,8 @@
 +++
 title = 'GSoC Week 6 and Half 7'
 date = 2026-07-10T23:49:31+02:00
-tags = ['git', 'open-source']
-series = ['GSoC 2026']
+tags = ['gsoc', 'open-source']
+projects = ['Git']
 epigraph = 'Poco a poco se anda lejos'
 epigraph_translation = "Little by little, one goes far."
 +++

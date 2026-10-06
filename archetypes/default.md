@@ -6,8 +6,9 @@ draft = true
 description = ''
 # A few lowercase tags, e.g. ['git', 'compilers'].
 tags = []
-# Uncomment to add the post to a series.
-# series = ['GSoC 2026']
+# Projects this post belongs to (the playlist on each project page).
+# Use the project's title, e.g. ['Orn'] or ['Git'].
+# projects = []
 # A refrán (or any quote) shown above the post. Optional.
 # epigraph = ''
 # epigraph_translation = ''

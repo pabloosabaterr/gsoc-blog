@@ -1,8 +1,8 @@
 +++
 title = 'GSoC Weeks 7 and 8'
 date = 2026-07-16T00:20:57+02:00
-tags = ['git', 'open-source']
-series = ['GSoC 2026']
+tags = ['gsoc', 'open-source']
+projects = ['Git']
 epigraph = 'El que algo quiere, algo le cuesta'
 epigraph_translation = "Whoever wants something has to pay for it."
 +++

@@ -1,8 +1,8 @@
 +++
 title = 'Pre GSoC'
 date = 2026-05-02T10:33:00+02:00
-tags = ['open-source']
-series = ['GSoC 2026']
+tags = ['gsoc', 'open-source']
+projects = ['Git']
 +++
 
 This post might be longer than others because it summarizes ~2 months of thoughts

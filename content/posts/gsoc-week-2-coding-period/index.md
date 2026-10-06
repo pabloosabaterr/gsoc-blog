@@ -1,8 +1,8 @@
 +++
 title = 'GSoC Week 2 First Feedback Round'
 date = 2026-06-09T20:07:19+02:00
-tags = ['git', 'open-source']
-series = ['GSoC 2026']
+tags = ['gsoc', 'open-source']
+projects = ['Git']
 epigraph = 'No por mucho madrugar amanece más temprano'
 epigraph_translation = "Getting up earlier won't make the sun rise sooner."
 +++

@@ -1,8 +1,8 @@
 +++
 title = 'GSoC Week 1 Coding Period'
 date = 2026-06-02T14:51:28+02:00
-tags = ['git', 'open-source']
-series = ['GSoC 2026']
+tags = ['gsoc', 'open-source']
+projects = ['Git']
 epigraph = 'A donde fueres, haz lo que vieres'
 epigraph_translation = "Wherever you go, do as you see others do."
 +++

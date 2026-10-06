@@ -1,8 +1,8 @@
 +++
 title = 'GSoC Week 10'
 date = 2026-08-02T23:51:31+02:00
-tags = ['git', 'open-source']
-series = ['GSoC 2026']
+tags = ['gsoc', 'open-source']
+projects = ['Git']
 +++
 
 ![A laptop showing a video call with the Git GSoC students and mentors, with a grey cat lying next to it](last-meeting.jpg "Last group meeting")

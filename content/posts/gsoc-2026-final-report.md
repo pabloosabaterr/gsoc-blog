@@ -2,8 +2,8 @@
 title = 'GSoC 2026 with Git'
 date = 2026-08-24T20:27:00+02:00
 description = 'A look back at my Google Summer of Code 2026 at Git: remote-object-info in cat-file, %(objecttype) support, graph indentation and the people who made it possible.'
-tags = ['git', 'open-source']
-series = ['GSoC 2026']
+tags = ['gsoc', 'open-source']
+projects = ['Git']
 toc = true
 +++
 

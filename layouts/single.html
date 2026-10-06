@@ -5,7 +5,7 @@
     <h1>{{ .Title }}</h1>
     <p class="meta">
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
-      {{- range .GetTerms "series" }} · <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+      {{- range .GetTerms "projects" }} · <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
       {{- range .GetTerms "tags" }} · <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
     </p>
   </header>
@@ -31,12 +31,20 @@
 
   {{- if eq .Section "posts" }}
   <footer class="post-foot">
-    {{- with .GetTerms "series" }}{{ with index . 0 }}
-    {{- $series := .Pages.ByDate }}
-    {{- $i := 0 }}{{ range $k, $p := $series }}{{ if eq $p $ }}{{ $i = add $k 1 }}{{ end }}{{ end }}
-    <p class="series-note">Part of <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>, post {{ $i }} of {{ len $series }}.</p>
-    {{- end }}{{ end }}
+    {{- range .GetTerms "projects" }}
+    {{- $list := .Pages.ByDate }}
+    {{- $i := 0 }}{{ range $k, $p := $list }}{{ if eq $p $ }}{{ $i = add $k 1 }}{{ end }}{{ end }}
+    <details class="playlist-box" open>
+      <summary><span class="k">Project</span> <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a> <span class="pos">· post {{ $i }} of {{ len $list }}</span></summary>
+      <ol class="playlist-mini">
+        {{- range $k, $p := $list }}
+        <li{{ if eq $p $ }} class="current" aria-current="page"{{ end }}>{{ if eq $p $ }}<span>{{ $p.Title }}</span>{{ else }}<a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>{{ end }}</li>
+        {{- end }}
+      </ol>
+    </details>
+    {{- end }}
     {{- $all := (where site.RegularPages "Section" "posts").ByDate }}
+    {{- with .GetTerms "projects" }}{{ $all = (index . 0).Pages.ByDate }}{{ end }}
     {{- $prev := false }}{{ $next := false }}
     {{- range $k, $p := $all }}{{ if eq $p $ }}{{ if gt $k 0 }}{{ $prev = index $all (sub $k 1) }}{{ end }}{{ if lt (add $k 1) (len $all) }}{{ $next = index $all (add $k 1) }}{{ end }}{{ end }}{{ end }}
     {{- if or $prev $next }}

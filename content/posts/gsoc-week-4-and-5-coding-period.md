@@ -1,8 +1,8 @@
 +++
 title = 'GSoC Week 4 & 5 Coding Period'
 date = 2026-07-01T14:34:54+02:00
-tags = ['git', 'open-source']
-series = ['GSoC 2026']
+tags = ['gsoc', 'open-source']
+projects = ['Git']
 epigraph = 'A dios rogando y con el mazo dando'
 epigraph_translation = "Pray to God, but keep swinging the hammer."
 +++

@@ -1,8 +1,8 @@
 +++
 title = 'GSoC Week 9'
 date = 2026-07-24T13:09:11+02:00
-tags = ['git', 'open-source']
-series = ['GSoC 2026']
+tags = ['gsoc', 'open-source']
+projects = ['Git']
 epigraph = 'Tras la tormenta luce el sol'
 epigraph_translation = "After the storm, the sun shines."
 +++

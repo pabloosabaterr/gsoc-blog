@@ -1,8 +1,8 @@
 +++
 title = 'Introduction'
 date = 2026-05-02T09:42:53+02:00
-tags = ['open-source']
-series = ['GSoC 2026']
+tags = ['gsoc', 'open-source']
+projects = ['Git']
 +++
 
 Hi!
