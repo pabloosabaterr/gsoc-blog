@@ -1,0 +1,8 @@
+{{- /* Photo grid. Put one image per line inside:
+       {{< gallery >}}
+       ![alt](one.jpg "caption")
+       ![alt](two.jpg)
+       {{< /gallery >}} */ -}}
+<div class="gallery">
+{{ .Inner | .Page.RenderString (dict "display" "block") | replaceRE "</?p>" "" | safeHTML }}
+</div>

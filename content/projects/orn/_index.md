@@ -4,6 +4,7 @@ description = 'Orn, a systems language where every type is a range.'
 summary = 'A systems language where every type is a range, with a compiler written in C.'
 status = 'Active'
 weight = 1
+github = 'pabloosabaterr/Orn-rework'
 [[links]]
   name = 'Repository'
   url = 'https://github.com/pabloosabaterr/Orn-rework'

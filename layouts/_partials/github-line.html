@@ -1,0 +1,17 @@
+{{- /* Context: dict "repo" "owner/repo" "bars" bool */ -}}
+{{- $gh := partialCached "github-activity.html" .repo .repo }}
+{{- if $gh.last }}
+{{- $days := div ((time.AsTime (now.Format "2006-01-02")).Sub (time.AsTime ($gh.last.Format "2006-01-02"))).Hours 24 | int }}
+{{- $when := $gh.last.Format "2 Jan 2006" }}
+{{- if lt $days 1 }}{{ $when = "today" }}{{ else if lt $days 2 }}{{ $when = "yesterday" }}{{ else if lt $days 14 }}{{ $when = printf "%d days ago" $days }}{{ end }}
+<div class="gh">
+  <p class="gh-line"><a class="gh-k" href="https://github.com/{{ .repo }}">GitHub</a> last commit <b>{{ $when }}</b>{{ with $gh.year }} · {{ . }} commits in the last year{{ end }}</p>
+  {{- if and .bars $gh.weeks }}
+  {{- $max := 1 }}{{ range $gh.weeks }}{{ if gt . $max }}{{ $max = . }}{{ end }}{{ end }}
+  <div class="spark" role="img" aria-label="Commits per week over the last six months">
+    {{- range $gh.weeks }}<i style="--h:{{ div (float .) $max | lang.FormatNumber 3 }}"{{ if eq . 0 }} class="z"{{ end }} title="{{ . }} commits"></i>{{ end -}}
+  </div>
+  <p class="gh-cap">commits per week · last 6 months</p>
+  {{- end }}
+</div>
+{{- end }}

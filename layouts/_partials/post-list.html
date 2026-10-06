@@ -4,7 +4,7 @@
   <li>
     <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan" }}</time>
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    {{- if $.tags }}<span class="tag">{{ with .Params.tags }}{{ index . 0 }}{{ end }}</span>{{ end }}
+    {{- if $.tags }}<span class="tag">{{ if eq .Params.style "photos" }}photos{{ else }}{{ with .Params.tags }}{{ index . 0 }}{{ end }}{{ end }}</span>{{ end }}
   </li>
   {{- end }}
 </ul>

@@ -10,5 +10,7 @@
 {{ block "main" . }}{{ end }}
 </main>
 {{ partial "footer.html" . }}
+{{- $lp := resources.Get "js/preview.js" | minify | fingerprint }}
+<script src="{{ $lp.RelPermalink }}" integrity="{{ $lp.Data.Integrity }}" defer></script>
 </body>
 </html>

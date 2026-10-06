@@ -1,0 +1,16 @@
+{{- $dest := .Destination }}
+{{- $u := urls.Parse $dest }}
+{{- $target := false }}
+{{- if and (not $u.IsAbs) $u.Path (not (strings.HasPrefix $dest "#")) (not (strings.HasPrefix $dest "mailto:")) }}
+  {{- with .Page.GetPage (strings.TrimSuffix "/" $u.Path) }}{{ if or .IsPage (eq .Kind "term") }}{{ $target = . }}{{ end }}{{ end }}
+{{- end }}
+{{- $attrs := "" }}
+{{- with $target }}
+  {{- $kind := "Project" }}
+  {{- if .IsPage }}{{ $kind = .Date.Format "2 Jan 2006" }}{{ with .GetTerms "projects" }}{{ $kind = printf "%s · %s" $kind (index . 0).LinkTitle }}{{ end }}{{ end }}
+  {{- $desc := "" }}
+  {{- with .Params.summary }}{{ $desc = . | plainify }}{{ else }}{{ $desc = .Description | default (.Summary | plainify | htmlUnescape | strings.TrimSpace) | truncate 150 }}{{ end }}
+  {{- $attrs = printf ` data-preview-kind="%s" data-preview-title="%s" data-preview-desc="%s"` (htmlEscape $kind) (htmlEscape .Title) (htmlEscape $desc) }}
+{{- end -}}
+<a href="{{ $dest | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ $attrs | safeHTMLAttr }}>{{ .Text }}</a>
+{{- /* */ -}}

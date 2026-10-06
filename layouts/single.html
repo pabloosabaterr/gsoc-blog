@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{- if eq .Section "posts" }}<div class="progress" aria-hidden="true"></div>{{ end }}
-<article class="post">
+<article class="post{{ with .Params.style }} style-{{ . }}{{ end }}">
   {{- if eq .Section "posts" }}
   <header class="post-head dotted-head">
     <h1>{{ .Title }}</h1>

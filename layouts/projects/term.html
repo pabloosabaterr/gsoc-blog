@@ -7,6 +7,7 @@
   {{- with .Params.year }} · {{ . }}{{ end }}
   {{- range .Params.links }} · <a href="{{ .url }}">{{ .name }}</a>{{ end }}
 </p>
+{{- with .Params.github }}{{ partial "github-line.html" (dict "repo" . "bars" true) }}{{ end }}
 </header>
 <div class="post project-body">
   <div class="prose">{{ .Content }}</div>

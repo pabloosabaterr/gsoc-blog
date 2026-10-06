@@ -1,0 +1,33 @@
+{{- /* Repository activity, fetched from the GitHub API when the site is built.
+       Returns a dict; empty when the API cannot be reached, so the page simply
+       shows nothing. Context: "owner/repo". */ -}}
+{{- $repo := . }}
+{{- $api := site.Params.githubAPI | default "https://api.github.com" }}
+{{- $headers := dict "Accept" "application/vnd.github+json" }}
+{{- with os.Getenv "HUGO_GITHUB_TOKEN" }}{{ $headers = merge $headers (dict "Authorization" (printf "Bearer %s" .)) }}{{ end }}
+{{- $opts := dict "headers" $headers }}
+{{- $out := dict }}
+
+{{- with try (resources.GetRemote (printf "%s/repos/%s/commits?per_page=1" $api $repo) $opts) }}
+  {{- with .Err }}{{ warnf "github activity: %s" . }}
+  {{- else with .Value }}
+    {{- with try (. | transform.Unmarshal) }}{{ with .Value }}{{ with index . 0 }}
+      {{- $out = merge $out (dict "last" (time .commit.author.date)) }}
+    {{- end }}{{ end }}{{ end }}
+  {{- end }}
+{{- end }}
+
+{{- with try (resources.GetRemote (printf "%s/repos/%s/stats/commit_activity" $api $repo) $opts) }}
+  {{- with .Err }}{{ warnf "github activity: %s" . }}
+  {{- else with .Value }}
+    {{- with try (. | transform.Unmarshal) }}{{ with .Value }}
+      {{- if reflect.IsSlice . }}
+        {{- $weeks := slice }}{{ $total := 0 }}
+        {{- range . }}{{ $weeks = $weeks | append .total }}{{ $total = add $total .total }}{{ end }}
+        {{- if $weeks }}{{ $out = merge $out (dict "weeks" (last 26 $weeks) "year" $total) }}{{ end }}
+      {{- end }}
+    {{- end }}{{ end }}
+  {{- end }}
+{{- end }}
+
+{{- return $out }}

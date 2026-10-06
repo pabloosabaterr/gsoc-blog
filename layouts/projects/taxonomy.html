@@ -14,6 +14,7 @@
       {{- if $n }} · {{ $n }} {{ cond (eq $n 1) "post" "posts" }}{{ end }}
     </p>
     {{ with .Params.summary }}<p class="summary">{{ . | markdownify }}</p>{{ end }}
+    {{- with .Params.github }}{{ partial "github-line.html" (dict "repo" . "bars" false) }}{{ end }}
     {{- with .Params.links }}
     <p class="links">{{ range $i, $l := . }}{{ if $i }} · {{ end }}<a href="{{ $l.url }}">{{ $l.name }}</a>{{ end }}</p>
     {{- end }}
