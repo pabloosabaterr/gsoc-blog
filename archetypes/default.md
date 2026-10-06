@@ -12,7 +12,8 @@ tags = []
 # A refrán (or any quote) shown above the post. Optional.
 # epigraph = ''
 # epigraph_translation = ''
-# Show a table of contents at the top.
-toc = false
+# Contents appear by themselves when the post has two or more sections.
+# Set to false to hide them.
+# toc = false
 +++
 

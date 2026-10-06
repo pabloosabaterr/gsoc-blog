@@ -21,7 +21,14 @@
   <h1 class="page-title">{{ .Title }}</h1>
   {{- end }}
 
-  {{- if and .Params.toc (gt (len .Fragments.Headings) 0) }}
+  {{- $showToc := and (ne .Params.toc false) (eq .Section "posts") (ge (len (.Fragments.Identifiers)) 2) }}
+  {{- if $showToc }}
+  <aside class="toc-side" aria-label="Contents">
+    <nav class="toc-rail">
+      <p class="toc-title">Contents</p>
+      {{ .TableOfContents }}
+    </nav>
+  </aside>
   <details class="toc"><summary>Contents</summary>{{ .TableOfContents }}</details>
   {{- end }}
 
@@ -59,4 +66,8 @@
   </footer>
   {{- end }}
 </article>
+{{- if $showToc }}
+{{- $js := resources.Get "js/toc.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{- end }}
 {{ end }}

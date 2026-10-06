@@ -483,3 +483,70 @@ html { overflow-x: clip; }
 .dotted-head + .year { margin-top: 1rem; }
 .dotted-head + .projects { margin-top: .8rem; }
 .dotted-head .now { margin-bottom: 0; }
+
+/* ---------- side contents ---------- */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+.prose h2[id], .prose h3[id] { scroll-margin-top: 2rem; }
+
+.post { position: relative; }
+.toc-side { display: none; }
+
+@media (min-width: 1260px) {
+  .toc { display: none; }
+  .toc-side {
+    display: block;
+    position: absolute; top: 0; bottom: 0;
+    left: calc(100% + 3.5rem); width: 12.5rem;
+  }
+  .toc-rail {
+    position: sticky; top: 2.5rem;
+    max-height: calc(100vh - 5rem); overflow-y: auto;
+    padding-left: .9rem;
+    border-left: 1px solid var(--rule);
+    font-size: .78rem; line-height: 1.35;
+    animation: toc-in .6s cubic-bezier(.2, .7, .2, 1) .15s both;
+    scrollbar-width: none;
+  }
+  .toc-rail::-webkit-scrollbar { display: none; }
+  .toc-title {
+    margin: 0 0 .7rem; color: var(--accent);
+    font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+  }
+  .toc-rail ul { list-style: none; margin: 0; padding: 0; }
+  .toc-rail li { margin: 0; }
+  .toc-rail ul ul { padding-left: .75rem; }
+  .toc-rail ul ul a { font-size: .95em; }
+  .toc-rail a {
+    position: relative; display: block;
+    padding: .28rem 0;
+    color: var(--muted); text-decoration: none;
+    transition: color .25s, transform .3s cubic-bezier(.2, .7, .2, 1);
+  }
+  .toc-rail a::before {
+    content: ""; position: absolute; left: calc(-.9rem - 1px); top: .2rem; bottom: .2rem;
+    width: 2px; background: var(--accent); border-radius: 2px;
+    transform: scaleY(0); transform-origin: center;
+    transition: transform .35s cubic-bezier(.2, .7, .2, 1);
+  }
+  .toc-rail a:hover { color: var(--fg); transform: translateX(.15rem); }
+  .toc-rail a.active { color: var(--fg); }
+  .toc-rail a.active::before { transform: scaleY(1); }
+  .toc-rail code { font-size: .9em; background: none; padding: 0; }
+}
+@keyframes toc-in { from { opacity: 0; transform: translateX(.6rem); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .toc-rail { animation: none; } }
+
+@media (min-width: 1260px) {
+  /* With the script on, sub-sections fold away until you reach their section. */
+  .toc-rail.ready ul ul {
+    max-height: 0; opacity: 0; overflow: hidden;
+    transition: max-height .45s cubic-bezier(.2, .7, .2, 1), opacity .3s ease;
+  }
+  .toc-rail.ready li.open > ul, .toc-rail.ready li:hover > ul { max-height: 24rem; opacity: 1; }
+  .toc-rail.ready li.open > a { color: var(--fg); }
+}
+@media (min-width: 1260px) {
+  .toc-rail ul ul { margin-left: -1rem; padding-left: 1.75rem; }
+  .toc-rail ul ul a::before { left: calc(-1.65rem - 1px); }
+}
