@@ -7,4 +7,17 @@
 <h2 class="section-label">Recent writing</h2>
 {{ partial "post-list.html" (dict "pages" (first (site.Params.recentPosts | default 15) $posts.ByDate.Reverse) "tags" true) }}
 <a class="more" href="{{ "posts/" | relURL }}">All writing <span class="arr" aria-hidden="true">→</span></a>
+{{ with site.GetPage "/projects" }}
+<h2 class="section-label">Projects</h2>
+<ul class="home-projects">
+  {{- range .Pages.ByWeight }}
+  <li>
+    <span class="status-dot status-{{ .Params.status | urlize }}" aria-hidden="true"></span>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{- with .Params.status }}<span class="st">{{ lower . }}</span>{{ end }}
+  </li>
+  {{- end }}
+</ul>
+<a class="more" href="{{ .RelPermalink }}">All projects <span class="arr" aria-hidden="true">→</span></a>
+{{ end }}
 {{ end }}

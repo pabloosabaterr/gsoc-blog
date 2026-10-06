@@ -1,4 +1,15 @@
 {{ define "main" }}
-<h1 class="page-title">Not found</h1>
-<div class="page-lede"><p>There's nothing at this address. Try the <a href="{{ "/" | relURL }}">home page</a> or the list of <a href="{{ "posts/" | relURL }}">everything I've written</a>.</p></div>
+<div class="post">
+<header class="dotted-head">
+  <p class="meta">404</p>
+  <h1 class="page-title">Not found</h1>
+</header>
+<blockquote class="epigraph">
+  <p class="original" lang="es">Quien busca, halla… pero aquí no.</p>
+  <p class="translation">Seek and you shall find… just not here.</p>
+</blockquote>
+<div class="prose">
+  <p>There's nothing at this address. Maybe it moved, or maybe it never existed. Try <a href="{{ "posts/" | relURL }}">Writing</a>, <a href="{{ "projects/" | relURL }}">Projects</a> or the <a href="{{ "/" | relURL }}">home page</a>.</p>
+</div>
+</div>
 {{ end }}

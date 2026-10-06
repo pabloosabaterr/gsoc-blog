@@ -1,0 +1,3 @@
+{{- /* Margin note. Usage: text{{< note >}}the note, with **markdown**{{< /note >}} more text. */ -}}
+<span class="sn"><span class="sn-ref" aria-hidden="true"></span><span class="sn-body" role="note">{{ .Inner | .Page.RenderString }}</span></span>
+{{- /* */ -}}

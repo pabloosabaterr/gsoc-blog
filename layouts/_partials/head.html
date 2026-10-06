@@ -32,8 +32,21 @@
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:locale" content="en">
 {{- $img := "" }}
-{{- with .Params.image }}{{ with $.Resources.Get . }}{{ $img = (.Fill "1200x630 Center webp").Permalink }}{{ end }}{{ end }}
-{{- if not $img }}{{ with .Resources.ByType "image" }}{{ with index . 0 }}{{ if ge .Width 600 }}{{ $img = (.Fill "1200x630 Center jpg").Permalink }}{{ end }}{{ end }}{{ end }}{{ end }}
+{{- with .Params.image }}{{ with $.Resources.Get . }}{{ $img = (.Fill "1200x630 Center jpg").Permalink }}{{ end }}{{ end }}
+{{- if and (not $img) (not .IsHome) (ne .Kind "404") .Title }}
+  {{- $base := resources.Get "og/base.png" }}
+  {{- $tf := resources.Get "og/fraunces-soft.ttf" }}
+  {{- $sf := resources.Get "og/source-serif.ttf" }}
+  {{- $sub := "" }}
+  {{- if .IsPage }}{{ $sub = upper (.Date.Format "2 Jan 2006") }}{{ with .GetTerms "projects" }}{{ $sub = printf "%s  ·  %s" $sub (upper (index . 0).LinkTitle) }}{{ end }}
+  {{- else if eq .Data.Plural "projects" }}{{ $sub = "PROJECT" }}
+  {{- else }}{{ $sub = upper site.Title }}{{ end }}
+  {{- $size := cond (gt (len .Title) 34) 68 88 }}
+  {{- $card := $base | images.Filter
+        (images.Text $sub (dict "font" $sf "color" "#A4402A" "size" 26 "x" 80 "y" 92))
+        (images.Text .Title (dict "font" $tf "color" "#A4402A" "size" $size "linespacing" 6 "x" 80 "y" 140)) }}
+  {{- $img = ($card | resources.Copy (printf "og/%s.png" (.RelPermalink | strings.TrimPrefix "/" | strings.TrimSuffix "/" | replaceRE "/" "-" | default "page"))).Permalink }}
+{{- end }}
 {{- if not $img }}{{ $img = "og.png" | absURL }}{{ end }}
 <meta property="og:image" content="{{ $img }}">
 <meta name="twitter:card" content="summary_large_image">

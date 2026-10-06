@@ -457,7 +457,7 @@ figure:hover img { filter: saturate(1.08) contrast(1.02); }
 }
 .project h2 a:hover { background-size: 100% .45em; color: var(--fg); }
 .status-finished, .status-paused { color: var(--muted); }
-.status-active::before {
+.status.status-active::before {
   content: ""; display: inline-block; width: .45em; height: .45em; border-radius: 50%;
   background: var(--accent); margin-right: .4em; vertical-align: .1em;
   animation: pulse 2.4s ease-in-out infinite;
@@ -550,3 +550,85 @@ html { scroll-behavior: smooth; }
   .toc-rail ul ul { margin-left: -1rem; padding-left: 1.75rem; }
   .toc-rail ul ul a::before { left: calc(-1.65rem - 1px); }
 }
+
+/* ---------- name ---------- */
+.intro .name {
+  font-family: var(--display); color: var(--title);
+  font-size: 1.12em; letter-spacing: -.005em; line-height: 1;
+}
+
+/* ---------- projects on the home page ---------- */
+.home-projects { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+.home-projects li { display: flex; align-items: baseline; gap: .6rem; }
+.home-projects a { font-weight: 600; text-decoration: none;
+  background-image: linear-gradient(var(--mark), var(--mark)); background-repeat: no-repeat;
+  background-position: 0 88%; background-size: 0% .5em;
+  transition: background-size .35s cubic-bezier(.2, .7, .2, 1); }
+.home-projects a:hover { background-size: 100% .5em; color: var(--fg); }
+.home-projects .st { color: var(--muted); font-size: .85rem; font-style: italic; }
+.status-dot { width: .5em; height: .5em; border-radius: 50%; background: var(--muted); opacity: .6; flex: none; align-self: center; }
+.status-dot.status-active { background: var(--accent); opacity: 1; animation: pulse 2.4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .status-dot.status-active { animation: none; } }
+
+/* ---------- reading progress (CSS only, where supported) ---------- */
+.progress { display: none; }
+@supports (animation-timeline: scroll()) {
+  .progress {
+    display: block; position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 10;
+    background: var(--accent); opacity: .75;
+    transform-origin: 0 50%; transform: scaleX(0);
+    animation: progress linear both; animation-timeline: scroll(root);
+  }
+  @keyframes progress { to { transform: scaleX(1); } }
+}
+@media (prefers-reduced-motion: reduce) { .progress { display: none; } }
+
+/* ---------- margin notes ---------- */
+.prose { counter-reset: sn; }
+.sn-ref::before {
+  counter-increment: sn; content: counter(sn);
+  font-size: .7em; vertical-align: super; line-height: 0;
+  color: var(--accent); font-weight: 600; margin-left: .08em;
+}
+.sn-body {
+  display: block; margin: .6rem 0 .6rem; padding-left: .8rem;
+  border-left: 2px solid var(--mark);
+  font-size: .84rem; line-height: 1.45; color: var(--muted); font-style: italic;
+}
+.sn-body::before {
+  content: counter(sn) "  "; white-space: pre;
+  color: var(--accent); font-style: normal; font-weight: 600;
+}
+.sn-body code { font-size: .9em; }
+@media (min-width: 1260px) {
+  .sn-body {
+    float: left; clear: left;
+    width: 12.5rem; margin: .25rem 0 1rem -15.5rem;
+    padding: 0; border: 0; text-align: right;
+  }
+  .sn-body::before { content: counter(sn) ". "; white-space: normal; }
+}
+
+/* ---------- hand annotations ---------- */
+.prose del {
+  text-decoration-line: line-through;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  color: var(--muted);
+}
+.circled { position: relative; white-space: nowrap; margin-inline: .2em; }
+.circled svg {
+  position: absolute; left: -.3em; top: -.3em;
+  width: calc(100% + .6em); height: calc(100% + .55em);
+  overflow: visible; pointer-events: none;
+}
+.circled path {
+  fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round;
+  vector-effect: non-scaling-stroke; opacity: .85;
+  stroke-dasharray: 1; stroke-dashoffset: 0;
+}
+@supports (animation-timeline: view()) {
+  .circled path { animation: draw linear both; animation-timeline: view(); animation-range: entry 20% cover 45%; }
+}
+@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .circled path { animation: none; } }

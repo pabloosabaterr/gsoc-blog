@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{- if eq .Section "posts" }}<div class="progress" aria-hidden="true"></div>{{ end }}
 <article class="post">
   {{- if eq .Section "posts" }}
   <header class="post-head dotted-head">
