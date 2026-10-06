@@ -1,10 +1,11 @@
 +++
-date = '2026-07-01T14:34:54+02:00'
-draft = false
 title = 'GSoC Week 4 & 5 Coding Period'
+date = 2026-07-01T14:34:54+02:00
+tags = ['git', 'open-source']
+series = ['GSoC 2026']
+epigraph = 'A dios rogando y con el mazo dando'
+epigraph_translation = "Pray to God, but keep swinging the hammer."
 +++
-
-—*"A dios rogando y con el mazo dando"*
 
 The first part of the project which consisted of finishing what Eric Ju
 started, adding `remote-object-info` to `--batch-command` on `git cat-file`.

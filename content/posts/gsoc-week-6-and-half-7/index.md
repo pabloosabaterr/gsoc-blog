@@ -1,14 +1,15 @@
 +++
-date = '2026-07-10T23:49:31+02:00'
-draft = false
 title = 'GSoC Week 6 and Half 7'
+date = 2026-07-10T23:49:31+02:00
+tags = ['git', 'open-source']
+series = ['GSoC 2026']
+epigraph = 'Poco a poco se anda lejos'
+epigraph_translation = "Little by little, one goes far."
 +++
-
-—*"Poco a poco se anda lejos"*
 
 This week I was at a campsite for a few days, but that doesn't mean that I stopped :).
 
-![me coding at a campsite](/images/camping.jpeg)
+![Pablo working on a laptop at a campsite](campsite.jpeg "Me coding at a campsite")
 
 It is already the *mid term evaluation*, this means that we are half done with
 the project time.

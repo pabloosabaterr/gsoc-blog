@@ -1,20 +1,33 @@
 +++
-draft = false
 title = 'About'
+description = 'Who Pablo Sabater is and where to find him.'
 +++
 
-This is my GSoC 2026 blog where I post about my journey working on
-[Git](https://git-scm.com/) as part of
-[Google Summer of Code](https://summerofcode.withgoogle.com/).
+{{< portrait >}}
+Hi, I'm Pablo. I'm a Computer Science student at the University of Murcia, in
+Spain. I like understanding how things work underneath, and then building my own
+version to check that I really did.
+{{< /portrait >}}
 
-You can read my full GSoC proposal [here](/proposal.pdf).
+Most of what I do lives close to the machine: compilers, languages, systems
+programming and the tools developers use every day. This site is where I write
+about that, and about anything else I want to remember.
 
-I'll be posting weekly updates about my progress, learnings and challenges
-throughout the coding period.
+## Things I've made
 
-If you want to know more about me and how I got here, check out my
-[Introduction](/posts/introduction/) and [Pre GSoC](/posts/pre-gsoc/) posts.
+- **Orn**, a small programming language and its compiler, written in C.
+- **snake.s**, the snake game in ARM64 assembly for macOS.
+- **Git patches**, from my [GSoC 2026](/series/gsoc-2026/) work on the
+  object-info protocol and graph rendering.
 
-You can find me on [GitHub](https://github.com/pabloosabaterr),
-[LinkedIn](https://www.linkedin.com/in/pablosabaterjimenez/) or reach me at
-pabloosabaterr@gmail.com.
+## Elsewhere
+
+[GitHub](https://github.com/pabloosabaterr) ·
+[LinkedIn](https://www.linkedin.com/in/pablosabaterjimenez/) ·
+[RSS](/index.xml) ·
+<pabloosabaterr@gmail.com>
+
+---
+
+Set in Source Serif 4 and IBM Plex Mono. Built with Hugo, no JavaScript, no tracking.
+{.colophon}

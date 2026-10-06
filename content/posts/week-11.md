@@ -1,7 +1,8 @@
 +++
-date = '2026-08-07T21:08:11+02:00'
-draft = false
 title = 'GSoC Week 11'
+date = 2026-08-07T21:08:11+02:00
+tags = ['git', 'open-source']
+series = ['GSoC 2026']
 +++
 
 Tic Tac, Tic, Tac... I am already getting emails from GSoC warning me that there

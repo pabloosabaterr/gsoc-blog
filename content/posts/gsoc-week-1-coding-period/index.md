@@ -1,10 +1,11 @@
 +++
-date = '2026-06-02T14:51:28+02:00'
-draft = false
 title = 'GSoC Week 1 Coding Period'
+date = 2026-06-02T14:51:28+02:00
+tags = ['git', 'open-source']
+series = ['GSoC 2026']
+epigraph = 'A donde fueres, haz lo que vieres'
+epigraph_translation = "Wherever you go, do as you see others do."
 +++
-
-*— "A donde fueres, haz lo que vieres"*
 
 I believe that being able to see something helps a lot with the comprehension
 so expect a lot of schemas about what I do from now on.
@@ -56,14 +57,14 @@ I first thought of a simple static list where the supported placeholders were.
 The backward and future compatibility of this approach is very poor if not
 non-existent.
 
-![scheme_a](/staticsheme.png)
+![Diagram: the client asks a server that only supports name and size for name, size and type; the server answers with an unexpected type error and the client dies](allow-list-failure.png)
 
 This static approach is only reliable if the client and the server support
 the same capabilities.
 
 ### Dynamic allow-list
 
-![client-server-schema](/client-server-schema.png)
+![Diagram of the object-info negotiation: the client drops the placeholders the server does not advertise, fetches only the size and prints an empty string for the type](client-server-negotiation.png)
 
 We have to think about the client as an **"all-knower"** it knows every
 placeholder option and it can ask whatever it wants and the server as an

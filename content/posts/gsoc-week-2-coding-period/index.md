@@ -1,10 +1,11 @@
 +++
-date = '2026-06-09T20:07:19+02:00'
-draft = false
 title = 'GSoC Week 2 First Feedback Round'
+date = 2026-06-09T20:07:19+02:00
+tags = ['git', 'open-source']
+series = ['GSoC 2026']
+epigraph = 'No por mucho madrugar amanece más temprano'
+epigraph_translation = "Getting up earlier won't make the sun rise sooner."
 +++
-
-*— "No por mucho madrugar amanece más temprano"*
 
 This week I finally sent what I consider my first version to the mailing
 list, well technically it's **v12**, but it's the first one for me.
@@ -33,7 +34,7 @@ focused on end-to-end support for `%(objectsize)`. The commits I added are:
 
 If you read last week's post, this is (very simplified) how it's behaving now:
 
-![simple-schema](/simple-schema-week-2.png)
+![Diagram: the user asks for size and type, the server only supports size, so the output is the size followed by an empty string](size-only-server.png)
 
 The client asks for size and type, the server only supports size, so it returns
 the size and an empty string for the unsupported placeholder.

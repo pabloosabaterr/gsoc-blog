@@ -1,50 +1,65 @@
 baseURL = 'https://pablosabater.dev/'
-title = "Pablo's GSoC at Git Blog"
-theme = 'PaperMod'
-paginate = 5
+languageCode = 'en'
+title = 'Pablo Sabater'
+copyright = 'Pablo Sabater'
+enableRobotsTXT = true
 
-[markup.goldmark.renderer]
-  unsafe = true
+[pagination]
+  pagerSize = 1000
+
+[taxonomies]
+  tag = 'tags'
+  series = 'series'
+
+[permalinks]
+  [permalinks.page]
+    posts = '/posts/:contentbasename/'
 
 [params]
   author = 'Pablo Sabater'
-  description = 'My Git Google Summer of Code 2026 blog'
-  ShowReadingTime = true
-  ShowPostNavLinks = true
-  ShowBreadCrumbs = true
+  description = 'Pablo Sabater writes about the things he builds, breaks and learns: compilers, systems, open source and more.'
+  # One line under the intro on the home page. Edit it whenever life changes.
+  now = 'building Orn, my own programming language.'
+  repo = 'https://github.com/pabloosabaterr/gsoc-blog'
+  github = 'https://github.com/pabloosabaterr'
+  linkedin = 'https://www.linkedin.com/in/pablosabaterjimenez/'
+  email = 'pabloosabaterr@gmail.com'
+  recentPosts = 15
 
-[params.homeInfoParams]
-  Title = "Hi, I'm Pablo :)"
-  Content = '<img src="me.jpg" style="width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:1rem;"><br>Second year CS student at University of Murcia, Spain. This blog documents my **Google Summer of Code 2026** journey working on **Git**, mentored by [Karthik](https://www.linkedin.com/in/karthik-nayak/) who works at [Gitlab](https://www.linkedin.com/company/gitlab-com/) and [Chandra](https://www.linkedin.com/in/chand-ra/).'
+[menus]
+  [[menus.main]]
+    name = 'Writing'
+    pageRef = '/posts'
+    weight = 1
+  [[menus.main]]
+    name = 'About'
+    pageRef = '/about'
+    weight = 2
 
-[[params.socialIcons]]
-  name = 'github'
-  url = 'https://github.com/pabloosabaterr'
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.goldmark.parser]
+    wrapStandAloneImageWithinParagraph = false
+    [markup.goldmark.parser.attribute]
+      block = true
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
 
-[[params.socialIcons]]
-  name = 'linkedin'
-  url = 'https://www.linkedin.com/in/pablosabaterjimenez/'
+[outputs]
+  home = ['html', 'rss']
+  section = ['html', 'rss']
+  taxonomy = ['html']
+  term = ['html', 'rss']
 
-[[params.socialIcons]]
-  name = 'email'
-  url = 'mailto:pabloosabaterr@gmail.com'
+[services.rss]
+  limit = -1
 
-[[menu.main]]
-  name = 'Blog'
-  url = '/posts/'
-  weight = 1
-
-[[menu.main]]
-  name = 'About'
-  url = '/about/'
-  weight = 2
-
-[[menu.main]]
-  name = 'Proposal'
-  url = '/proposal.pdf'
-  weight = 3
-
-[[menu.main]]
-  name = 'GitHub repo'
-  url = 'https://github.com/pabloosabaterr/git'
-  weight = 4
+[imaging]
+  quality = 78
+  resampleFilter = 'Lanczos'

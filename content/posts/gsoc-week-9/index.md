@@ -1,9 +1,11 @@
 +++
-date = '2026-07-24T13:09:11+02:00'
-draft = false
-title = 'Gsoc Week 9'
+title = 'GSoC Week 9'
+date = 2026-07-24T13:09:11+02:00
+tags = ['git', 'open-source']
+series = ['GSoC 2026']
+epigraph = 'Tras la tormenta luce el sol'
+epigraph_translation = "After the storm, the sun shines."
 +++
-—*"Tras la tormenta luce el sol"*
 
 This last week has probably been the one with the least work to do from all the
 GSoC period.
@@ -42,7 +44,7 @@ definitely I'll keep contributing after GSoC.
 
 I bought a book:
 
-![A Philosophy of Software Design](/images/IMG_0145.jpg)
+![Cover of the book A Philosophy of Software Design by John Ousterhout on a wooden table](a-philosophy-of-software-design.jpg "A Philosophy of Software Design")
 
 For now I'm liking it, it would have been good to have read it before GSoC... haha
 but nice book, I recommend it.

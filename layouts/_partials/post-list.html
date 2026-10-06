@@ -1,0 +1,10 @@
+{{- /* context: dict "pages" Pages "tags" bool */}}
+<ul class="posts">
+  {{- range .pages }}
+  <li>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan" }}</time>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{- if $.tags }}<span class="tag">{{ with .Params.tags }}{{ index . 0 }}{{ end }}</span>{{ end }}
+  </li>
+  {{- end }}
+</ul>

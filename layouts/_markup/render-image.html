@@ -1,0 +1,30 @@
+{{- $src := .Destination }}
+{{- $alt := .PlainText }}
+{{- $img := or (.Page.Resources.Get $src) (resources.Get $src) }}
+{{- $cls := "" }}
+<figure{{ with .Attributes.class }} class="{{ . }}"{{ end }}>
+{{- if and $img (in (slice "image/jpeg" "image/png" "image/webp") $img.MediaType.Type) }}
+  {{- $widths := slice 640 960 1400 }}
+  {{- $set := slice }}
+  {{- $largest := false }}
+  {{- range $widths }}
+    {{- if le . $img.Width }}
+      {{- $r := $img.Resize (printf "%dx webp" .) }}
+      {{- $set = $set | append (printf "%s %dw" $r.RelPermalink .) }}
+      {{- $largest = $r }}
+    {{- end }}
+  {{- end }}
+  {{- if not $largest }}{{ $largest = $img.Resize (printf "%dx webp" $img.Width) }}{{ $set = slice (printf "%s %dw" $largest.RelPermalink $img.Width) }}{{ end }}
+  {{- $portrait := gt $img.Height $img.Width }}
+  <img src="{{ $largest.RelPermalink }}" srcset="{{ delimit $set ", " }}"
+       sizes="(min-width: 1024px) {{ cond $portrait "26rem" "42rem" }}, 100vw"
+       width="{{ $largest.Width }}" height="{{ $largest.Height }}"
+       alt="{{ $alt }}" loading="{{ cond (eq .Ordinal 0) "eager" "lazy" }}" decoding="async"{{ if $portrait }} class="portrait"{{ end }}>
+{{- else }}
+  <img src="{{ $src | safeURL }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+{{- end }}
+{{- with .Title }}
+  <figcaption>{{ . | markdownify }}</figcaption>
+{{- end }}
+</figure>
+{{- /* */ -}}

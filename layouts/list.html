@@ -1,0 +1,5 @@
+{{ define "main" }}
+<h1 class="page-title">{{ .Title }}</h1>
+{{ with .Content }}<div class="page-lede">{{ . }}</div>{{ end }}
+{{ partial "posts-by-year.html" .Pages.ByDate.Reverse }}
+{{ end }}

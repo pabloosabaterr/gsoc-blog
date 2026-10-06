@@ -16,14 +16,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: recursive
       - name: setup
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: latest
+          hugo-version: '0.151.0'
           extended: true
       - name: Build
-        run: hugo --minify
+        run: hugo --gc --minify
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -1,0 +1,54 @@
+{{ define "main" }}
+<article class="post">
+  {{- if eq .Section "posts" }}
+  <header class="post-head">
+    <h1>{{ .Title }}</h1>
+    <p class="meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+      {{- range .GetTerms "series" }} · <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+      {{- range .GetTerms "tags" }} · <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+    </p>
+  </header>
+  {{- with .Params.epigraph }}
+  <blockquote class="epigraph">
+    <p class="original" lang="es">{{ . }}.</p>
+    {{- with $.Params.epigraph_translation }}
+    <p class="translation">{{ . }}</p>
+    {{- end }}
+  </blockquote>
+  {{- end }}
+  {{- else }}
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{- end }}
+
+  {{- if and .Params.toc (gt (len .Fragments.Headings) 0) }}
+  <nav class="toc" aria-label="Contents">{{ .TableOfContents }}</nav>
+  {{- end }}
+
+  <div class="prose">
+    {{ .Content }}
+  </div>
+
+  {{- if eq .Section "posts" }}
+  <footer class="post-foot">
+    {{- with .GetTerms "series" }}{{ with index . 0 }}
+    {{- $series := .Pages.ByDate }}
+    {{- $i := 0 }}{{ range $k, $p := $series }}{{ if eq $p $ }}{{ $i = add $k 1 }}{{ end }}{{ end }}
+    <p class="series-note">Part of <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>, post {{ $i }} of {{ len $series }}.</p>
+    {{- end }}{{ end }}
+    {{- $all := (where site.RegularPages "Section" "posts").ByDate }}
+    {{- $prev := false }}{{ $next := false }}
+    {{- range $k, $p := $all }}{{ if eq $p $ }}{{ if gt $k 0 }}{{ $prev = index $all (sub $k 1) }}{{ end }}{{ if lt (add $k 1) (len $all) }}{{ $next = index $all (add $k 1) }}{{ end }}{{ end }}{{ end }}
+    {{- if or $prev $next }}
+    <nav class="pager" aria-label="More posts">
+      {{- with $prev }}<a class="prev" href="{{ .RelPermalink }}" rel="prev"><span class="k">Previous</span><span class="t">{{ .Title }}</span></a>{{ else }}<span></span>{{ end }}
+      {{- with $next }}<a class="next" href="{{ .RelPermalink }}" rel="next"><span class="k">Next</span><span class="t">{{ .Title }}</span></a>{{ end }}
+    </nav>
+    {{- end }}
+    {{- with .File }}
+    <p class="edit">Found a typo? <a href="{{ site.Params.repo }}/blob/main/content/{{ .Path }}">Edit this page on GitHub</a>.</p>
+    {{- end }}
+  </footer>
+  {{- end }}
+</article>
+{{ end }}
