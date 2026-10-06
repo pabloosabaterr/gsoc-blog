@@ -3,10 +3,6 @@
 <div class="intro">{{ .Content }}</div>
 {{ with site.Params.now }}<p class="now"><b>Currently</b> {{ . | markdownify }}</p>{{ end }}
 </header>
-{{ $posts := where site.RegularPages "Section" "posts" }}
-<h2 class="section-label">Recent writing</h2>
-{{ partial "post-list.html" (dict "pages" (first (site.Params.recentPosts | default 15) $posts.ByDate.Reverse) "tags" true) }}
-<a class="more" href="{{ "posts/" | relURL }}">All writing <span class="arr" aria-hidden="true">→</span></a>
 {{ with site.GetPage "/projects" }}
 <h2 class="section-label">Projects</h2>
 <ul class="home-projects">
@@ -20,4 +16,9 @@
 </ul>
 <a class="more" href="{{ .RelPermalink }}">All projects <span class="arr" aria-hidden="true">→</span></a>
 {{ end }}
+{{ $posts := where site.RegularPages "Section" "posts" }}
+<h2 class="section-label">Recent writing</h2>
+{{ partial "post-list.html" (dict "pages" (first (site.Params.recentPosts | default 15) $posts.ByDate.Reverse) "tags" true) }}
+<a class="more" href="{{ "posts/" | relURL }}">All writing <span class="arr" aria-hidden="true">→</span></a>
+
 {{ end }}

@@ -552,10 +552,7 @@ html { scroll-behavior: smooth; }
 }
 
 /* ---------- name ---------- */
-.intro .name {
-  font-family: var(--display); color: var(--title);
-  font-size: 1.12em; letter-spacing: -.005em; line-height: 1;
-}
+.intro .name { color: var(--title); }
 
 /* ---------- projects on the home page ---------- */
 .home-projects { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
@@ -632,3 +629,8 @@ html { scroll-behavior: smooth; }
 }
 @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 @media (prefers-reduced-motion: reduce) { .circled path { animation: none; } }
+
+/* Keep the footer at the bottom on short pages. */
+body { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+.site-header, main, .site-footer { width: 100%; }
+main { flex: 1 0 auto; }
