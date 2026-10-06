@@ -691,3 +691,20 @@ img.zoomable:hover { transform: scale(1.005); }
 @media (prefers-reduced-motion: reduce) { .zoom, .zoom img { transition: none; } }
 
 .reply { color: var(--accent); }
+
+/* ---------- layout fixes: side contents and margin notes clear of wide blocks ---------- */
+@media (min-width: 1260px) and (max-width: 1279.98px) {
+  .toc { display: block; }
+  .toc-side { display: none; }
+}
+@media (min-width: 1280px) {
+  .toc-side { left: calc(100% + (var(--content) - var(--reading)) / 2 + 1.75rem); width: 10.5rem; }
+  .sn-body { width: 10rem; margin-left: calc(-1 * ((var(--content) - var(--reading)) / 2 + 1.75rem + 10rem)); }
+}
+@media (min-width: 1260px) and (max-width: 1279.98px) {
+  .sn-body { float: none; width: auto; margin: .6rem 0; padding-left: .8rem; border-left: 2px solid var(--mark); text-align: left; }
+}
+/* Project pages are left-aligned: code blocks stay in the text column. */
+@media (min-width: 640px) {
+  .project-body .prose > .codeblock { margin-inline: 0; }
+}
