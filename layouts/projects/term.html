@@ -7,13 +7,12 @@
   {{- with .Params.year }} · {{ . }}{{ end }}
   {{- range .Params.links }} · <a href="{{ .url }}">{{ .name }}</a>{{ end }}
 </p>
-{{- with .Params.github }}{{ partial "github-line.html" (dict "repo" . "bars" true) }}{{ end }}
 </header>
 <div class="post project-body">
   <div class="prose">{{ .Content }}</div>
 </div>
 {{ $posts := .Pages.ByDate }}
-<h2 class="section-label">Playlist{{ with $posts }} · {{ len . }} {{ cond (eq (len .) 1) "post" "posts" }}{{ end }}</h2>
+<h2 class="section-label">Reading list{{ with $posts }} · {{ len . }} {{ cond (eq (len .) 1) "post" "posts" }}{{ end }}</h2>
 {{- if $posts }}
 <ol class="posts playlist">
   {{- range $posts }}

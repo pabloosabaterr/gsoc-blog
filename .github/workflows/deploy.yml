@@ -3,9 +3,6 @@ on:
   push:
     branches:
       - main
-  schedule:
-    # Rebuild every morning so project activity from GitHub stays current.
-    - cron: '17 5 * * *'
   workflow_dispatch:
 permissions:
   contents: read
@@ -25,9 +22,6 @@ jobs:
           hugo-version: '0.151.0'
           extended: true
       - name: Build
-        env:
-          HUGO_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TZ: Europe/Lisbon
         run: hugo --gc --minify
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

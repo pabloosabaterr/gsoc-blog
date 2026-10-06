@@ -418,7 +418,7 @@ figure:hover img { filter: saturate(1.08) contrast(1.02); }
 .project-body { margin: 2.2rem 0 0; max-width: var(--reading); margin-inline: 0; }
 .empty { color: var(--muted); font-style: italic; }
 
-/* Playlist on a project page: numbered like tracks. */
+/* Reading list on a project page, numbered in order. */
 .playlist { counter-reset: track; }
 .playlist li { grid-template-columns: 2rem 6.8rem minmax(0, 1fr); counter-increment: track; }
 .playlist li::before {
@@ -431,7 +431,7 @@ figure:hover img { filter: saturate(1.08) contrast(1.02); }
   .playlist li a { grid-column: 2; }
 }
 
-/* Playlist box at the end of a post. */
+/* Reading list box at the end of a post. */
 .playlist-box { border-left: 2px solid var(--mark); padding: .2rem 0 .2rem 1rem; }
 .playlist-box summary { cursor: pointer; list-style: none; color: var(--muted); font-size: .92rem; }
 .playlist-box summary::-webkit-details-marker { display: none; }
@@ -730,20 +730,6 @@ img.zoomable:hover { transform: scale(1.005); }
 .lp-d { color: var(--muted); font-size: .8rem; line-height: 1.45; margin-top: .35rem !important; }
 @media (prefers-reduced-motion: reduce) { .lp { transition: none; } }
 
-/* ---------- GitHub activity ---------- */
-.gh { margin-top: 1rem; }
-.project .gh { margin-top: .45rem; }
-.gh-line { margin: 0; font-size: .82rem; color: var(--muted); }
-.gh-line b { color: var(--fg); font-weight: 600; }
-.gh-k { color: var(--accent) !important; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; margin-right: .35rem; text-decoration: none; }
-.spark { display: flex; align-items: flex-end; gap: 3px; height: 22px; margin-top: .55rem; width: max-content; }
-.spark i { display: block; width: 5px; height: calc(3px + var(--h) * 19px); background: var(--accent); opacity: .55; border-radius: 1px;
-  transform-origin: bottom; animation: grow .6s cubic-bezier(.2, .7, .2, 1) both; }
-.spark i.z { opacity: .18; }
-.spark i:hover { opacity: 1; }
-@keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-@media (prefers-reduced-motion: reduce) { .spark i { animation: none; } }
-.gh-cap { margin: .3rem 0 0; font-size: .68rem; color: var(--muted); font-style: italic; }
 
 /* ---------- photo posts (style = 'photos') ---------- */
 .style-photos .prose > figure,

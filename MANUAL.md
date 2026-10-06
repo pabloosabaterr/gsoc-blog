@@ -32,8 +32,6 @@ git push
 
 En menos de un minuto está en la web. Si algo falla, mira la pestaña **Actions** del repositorio en GitHub: el último build saldrá en rojo con el error.
 
-El sitio también se reconstruye solo cada mañana, para que los datos de GitHub de los proyectos estén al día.
-
 ---
 
 ## 2. Crear un post
@@ -242,7 +240,6 @@ summary = 'Una frase para la lista de proyectos.'
 status = 'Active'
 year = 2026
 weight = 1
-github = 'pabloosabaterr/Orn-rework'
 [[links]]
   name = 'Repository'
   url = 'https://github.com/pabloosabaterr/Orn-rework'
@@ -261,12 +258,11 @@ Descripción del proyecto en Markdown. Puede llevar código, enlaces, etc.
 | `status` | `Active` (punto rojo que late), `Finished` o `Paused` (en gris). |
 | `year` | Año, sale junto al estado. Opcional. |
 | `weight` | Orden en la lista: el número más bajo sale primero. |
-| `github` | `usuario/repo`. Muestra último commit, commits del último año y barras por semana. Se actualiza cada mañana. |
 | `links` | Enlaces que salen junto al estado. Puedes poner los que quieras. |
 
 ### Asignar posts a un proyecto
 
-En cada post: `projects = ['Orn']`. El post aparece en la *playlist* del proyecto, numerado en orden de fecha. Al final del post sale la playlist con el post actual marcado, y Previous/Next avanzan dentro del proyecto.
+En cada post: `projects = ['Orn']`. El post aparece en la *reading list* del proyecto, numerado en orden de fecha. Al final del post sale esa lista con el post actual marcado, y Previous/Next avanzan dentro del proyecto.
 
 Los proyectos salen también en la home, encima de “Recent writing”.
 
@@ -297,7 +293,6 @@ En la home, “Pablo” sale en rojo porque está escrito como `<span class="nam
 - **Reply by email** al final de cada post, con el título como asunto.
 - **Edit this page on GitHub**, para que te avisen de erratas.
 - **RSS** en `/index.xml` (no está enlazado, pero funciona para quien lo use), **sitemap** y **robots.txt**.
-- **Datos de GitHub** de los proyectos, actualizados cada mañana.
 
 ---
 
@@ -309,7 +304,6 @@ En la home, “Pablo” sale en rojo porque está escrito como `<span class="nam
 | La imagen no se ve | El archivo no está en la carpeta del post, o el nombre no coincide (mayúsculas incluidas). |
 | El post no sale en un proyecto | El nombre en `projects = [...]` no coincide con el `title` del proyecto. |
 | No sale el índice | El post tiene menos de 2 secciones `##`, o tiene `toc = false`. |
-| No salen los datos de GitHub | El repo es privado o la API falló ese día; se reintenta en el build de la mañana siguiente. |
 | El shortcode sale como texto | Revisa que sea `{{< note >}}…{{< /note >}}`, con `<` y `>`, y sin `/* */`. |
 | El build falla | Mira el error en **Actions** en GitHub. Suele ser un `+++` mal cerrado o unas comillas sin cerrar en la cabecera. |
 
