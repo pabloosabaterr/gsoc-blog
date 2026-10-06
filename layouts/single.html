@@ -41,8 +41,8 @@
     {{- range $k, $p := $all }}{{ if eq $p $ }}{{ if gt $k 0 }}{{ $prev = index $all (sub $k 1) }}{{ end }}{{ if lt (add $k 1) (len $all) }}{{ $next = index $all (add $k 1) }}{{ end }}{{ end }}{{ end }}
     {{- if or $prev $next }}
     <nav class="pager" aria-label="More posts">
-      {{- with $prev }}<a class="prev" href="{{ .RelPermalink }}" rel="prev"><span class="k">Previous</span><span class="t">{{ .Title }}</span></a>{{ else }}<span></span>{{ end }}
-      {{- with $next }}<a class="next" href="{{ .RelPermalink }}" rel="next"><span class="k">Next</span><span class="t">{{ .Title }}</span></a>{{ end }}
+      {{- with $prev }}<a class="prev" href="{{ .RelPermalink }}" rel="prev"><span class="k"><span class="arr" aria-hidden="true">←</span> Previous</span><span class="t">{{ .Title }}</span></a>{{ else }}<span></span>{{ end }}
+      {{- with $next }}<a class="next" href="{{ .RelPermalink }}" rel="next"><span class="k">Next <span class="arr" aria-hidden="true">→</span></span><span class="t">{{ .Title }}</span></a>{{ end }}
     </nav>
     {{- end }}
     {{- with .File }}

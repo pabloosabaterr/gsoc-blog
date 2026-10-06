@@ -358,3 +358,46 @@ mark {
 .post-head .meta a:hover { opacity: 1; }
 .prose h2 code, .prose h3 code { background: var(--mark); }
 ::selection { background: var(--mark); }
+
+/* ---------- hover motion ---------- */
+/* A red marker sweeps in under titles and nav items, like annotating with a highlighter. */
+.posts a, .pager .t, .site-header nav a, .brand, .more, .terms a {
+  text-decoration: none;
+  background-image: linear-gradient(var(--mark), var(--mark));
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 0% .5em;
+  transition: background-size .35s cubic-bezier(.2, .7, .2, 1), color .2s;
+}
+.posts a:hover, .posts li:hover a, .pager a:hover .t, .site-header nav a:hover, .brand:hover, .more:hover, .terms a:hover,
+.posts a:focus-visible, .site-header nav a:focus-visible {
+  background-size: 100% .5em;
+  text-decoration: none;
+  color: var(--fg);
+}
+.site-header nav a[aria-current="page"] { background-size: 100% .5em; text-decoration: none; }
+.posts li { transition: background-color .3s ease, box-shadow .3s ease; }
+.posts li time, .posts .tag { transition: color .25s, opacity .25s; }
+.posts li:hover time { color: var(--accent); }
+.posts li:hover .tag { opacity: 1; }
+
+.arr { display: inline-block; transition: transform .3s cubic-bezier(.2, .7, .2, 1); }
+.more:hover .arr, .pager .next:hover .arr { transform: translateX(.3em); }
+.pager .prev:hover .arr { transform: translateX(-.3em); }
+.pager .k { transition: color .25s; }
+.pager a:hover .k { color: var(--accent); }
+
+.prose a { transition: color .2s, text-decoration-thickness .2s, text-underline-offset .2s; }
+.prose a:hover { text-underline-offset: .28em; }
+
+figure img { transition: filter .4s ease; }
+figure:hover img { filter: saturate(1.08) contrast(1.02); }
+
+.toc summary::before { transition: transform .25s; }
+.toc[open] summary::before { transform: rotate(180deg); }
+.epigraph { transition: border-color .3s; }
+.epigraph:hover { border-left-color: var(--accent); }
+.posts a { justify-self: start; }
+.pager .t, .pager .k { justify-self: start; }
+.pager .next .t, .pager .next .k { justify-self: end; }
+@media (max-width: 639px) { .pager .next .t, .pager .next .k { justify-self: start; } }
