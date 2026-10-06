@@ -766,3 +766,13 @@ img.zoomable:hover { transform: scale(1.005); }
   .gallery { gap: 3px; }
   .gallery figcaption { padding-inline: .5rem; }
 }
+
+/* Dot grid under the footer line, full width. */
+.site-footer { position: relative; isolation: isolate; }
+.site-footer::before {
+  content: ""; position: absolute; z-index: -1;
+  top: 0; bottom: 0; left: calc(50% - 50vw); right: calc(50% - 50vw);
+  background-image: radial-gradient(circle at center, var(--dot) 1.1px, transparent 1.6px);
+  background-size: 22px 22px;
+  background-position: center 11px;
+}
