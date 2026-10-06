@@ -478,3 +478,8 @@ html { overflow-x: clip; }
 }
 .dotted-head .project-meta { margin-bottom: 0; }
 .dotted-head + .project-body { margin-top: .6rem; }
+.post-head.dotted-head { margin-bottom: 1rem; }
+.dotted-head + .section-label { margin-top: 1.8rem; }
+.dotted-head + .year { margin-top: 1rem; }
+.dotted-head + .projects { margin-top: .8rem; }
+.dotted-head .now { margin-bottom: 0; }

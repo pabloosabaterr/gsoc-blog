@@ -1,6 +1,8 @@
 {{ define "main" }}
+<header class="dotted-head">
 <h1 class="page-title">{{ .Title }}</h1>
 {{ with .Content }}<div class="page-lede">{{ . }}</div>{{ end }}
+</header>
 <ul class="projects">
   {{- range .Pages.ByWeight }}
   {{- $n := len .Pages }}
