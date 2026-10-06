@@ -4,8 +4,8 @@ description = 'Who Pablo Sabater is and where to find him.'
 +++
 
 {{< portrait >}}
-Hi, I'm Pablo. I'm a Computer Science student at the University of Murcia, in
-Spain, spending this semester on Erasmus at NOVA in Lisbon. I like understanding
+Hi, I'm Pablo. I'm a Computer Science and Engineering student at the University of
+Murcia, in Spain, spending this semester on Erasmus at NOVA in Lisbon. I like understanding
 how things work underneath, and then building my own version to check that I
 really did.
 {{< /portrait >}}
