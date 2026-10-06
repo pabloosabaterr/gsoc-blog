@@ -79,10 +79,7 @@ html { font-size: 17px; -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  background-color: var(--bg);
-  background-image: radial-gradient(circle at center, var(--dot) 1.1px, transparent 1.6px);
-  background-size: 22px 22px;
-  background-position: 0 0;
+  background: var(--bg);
   color: var(--fg);
   font-family: var(--serif);
   font-size: 1rem;
@@ -467,3 +464,17 @@ figure:hover img { filter: saturate(1.08) contrast(1.02); }
 }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
 @media (prefers-reduced-motion: reduce) { .status-active::before { animation: none; } }
+
+/* Dot grid behind the header of a project page, fading out at the edges. */
+html { overflow-x: clip; }
+.dotted-head { position: relative; isolation: isolate; padding-block: 2.2rem 2.4rem; margin-top: -2.2rem; }
+.dotted-head::before {
+  content: ""; position: absolute; z-index: -1;
+  top: 0; bottom: 0; left: calc(50% - 50vw); right: calc(50% - 50vw);
+  background-image: radial-gradient(circle at center, var(--dot) 1.1px, transparent 1.6px);
+  background-size: 22px 22px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
+          mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
+}
+.dotted-head .project-meta { margin-bottom: 0; }
+.dotted-head + .project-body { margin-top: .6rem; }

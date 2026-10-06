@@ -1,4 +1,5 @@
 {{ define "main" }}
+<header class="dotted-head">
 <p class="meta"><a href="{{ .Parent.RelPermalink }}">Projects</a></p>
 <h1 class="page-title">{{ .Title }}</h1>
 <p class="meta project-meta">
@@ -6,6 +7,7 @@
   {{- with .Params.year }} · {{ . }}{{ end }}
   {{- range .Params.links }} · <a href="{{ .url }}">{{ .name }}</a>{{ end }}
 </p>
+</header>
 <div class="post project-body">
   <div class="prose">{{ .Content }}</div>
 </div>
