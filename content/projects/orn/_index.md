@@ -2,7 +2,7 @@
 title = 'Orn'
 description = 'Orn, a systems language where every type is a range.'
 summary = 'A systems language where every type is a range, with a compiler written in C.'
-status = 'In progress'
+status = 'Active'
 weight = 1
 [[links]]
   name = 'Repository'

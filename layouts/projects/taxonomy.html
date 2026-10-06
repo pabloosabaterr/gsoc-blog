@@ -7,8 +7,8 @@
   <li class="project">
     <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
     <p class="meta">
-      {{- with .Params.status }}<span class="status">{{ . }}</span>{{ end }}
-      {{- with .Params.since }} · since {{ . }}{{ end }}
+      {{- with .Params.status }}<span class="status status-{{ . | urlize }}">{{ . }}</span>{{ end }}
+      {{- with .Params.year }} · {{ . }}{{ end }}
       {{- if $n }} · {{ $n }} {{ cond (eq $n 1) "post" "posts" }}{{ end }}
     </p>
     {{ with .Params.summary }}<p class="summary">{{ . | markdownify }}</p>{{ end }}

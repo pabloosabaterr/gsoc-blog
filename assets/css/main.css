@@ -40,11 +40,11 @@
 }
 
 @font-face {
-  font-family: "Young Serif";
+  font-family: "Fraunces Soft";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/young-serif-400-normal.woff2") format("woff2");
+  src: url("/fonts/fraunces-soft-display.woff2") format("woff2");
 }
 
 :root {
@@ -58,10 +58,11 @@
   --rule: rgba(164, 64, 42, .28);
   --mark: rgba(164, 64, 42, .22);
   --mark-soft: rgba(164, 64, 42, .1);
+  --dot: rgba(110, 101, 90, .2);
   --code-bg: #EDE4D2;
 
   --serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
-  --display: "Young Serif", "Source Serif 4", Georgia, serif;
+  --display: "Fraunces Soft", "Source Serif 4", Georgia, serif;
   --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
   --content: 42rem;
@@ -78,7 +79,10 @@ html { font-size: 17px; -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image: radial-gradient(circle at center, var(--dot) 1.1px, transparent 1.6px);
+  background-size: 22px 22px;
+  background-position: 0 0;
   color: var(--fg);
   font-family: var(--serif);
   font-size: 1rem;
@@ -455,3 +459,11 @@ figure:hover img { filter: saturate(1.08) contrast(1.02); }
   transition: background-size .35s cubic-bezier(.2, .7, .2, 1), color .2s;
 }
 .project h2 a:hover { background-size: 100% .45em; color: var(--fg); }
+.status-finished, .status-paused { color: var(--muted); }
+.status-active::before {
+  content: ""; display: inline-block; width: .45em; height: .45em; border-radius: 50%;
+  background: var(--accent); margin-right: .4em; vertical-align: .1em;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .status-active::before { animation: none; } }

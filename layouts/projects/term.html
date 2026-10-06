@@ -2,8 +2,8 @@
 <p class="meta"><a href="{{ .Parent.RelPermalink }}">Projects</a></p>
 <h1 class="page-title">{{ .Title }}</h1>
 <p class="meta project-meta">
-  {{- with .Params.status }}<span class="status">{{ . }}</span>{{ end }}
-  {{- with .Params.since }} · since {{ . }}{{ end }}
+  {{- with .Params.status }}<span class="status status-{{ . | urlize }}">{{ . }}</span>{{ end }}
+  {{- with .Params.year }} · {{ . }}{{ end }}
   {{- range .Params.links }} · <a href="{{ .url }}">{{ .name }}</a>{{ end }}
 </p>
 <div class="post project-body">

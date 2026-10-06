@@ -11,7 +11,7 @@
         <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
         <style>
           @font-face { font-family: "Source Serif 4"; font-weight: 400 700; font-display: swap; src: url("/fonts/source-serif-4-normal.woff2") format("woff2"); }
-          @font-face { font-family: "Young Serif"; font-weight: 400; font-display: swap; src: url("/fonts/young-serif-400-normal.woff2") format("woff2"); }
+          @font-face { font-family: "Fraunces Soft"; font-weight: 400; font-display: swap; src: url("/fonts/fraunces-soft-display.woff2") format("woff2"); }
           @font-face { font-family: "IBM Plex Mono"; font-weight: 400; font-display: swap; src: url("/fonts/ibm-plex-mono-400-normal.woff2") format("woff2"); }
           :root { color-scheme: light; }
           html { font-size: 17px; }
@@ -27,7 +27,7 @@
           nav a { color: #6E655A; }
           a { color: inherit; text-decoration-color: #A4402A; text-underline-offset: .2em; }
           a:hover { color: #A4402A; }
-          h1 { font-family: "Young Serif", Georgia, serif; font-weight: 400; color: #A4402A;
+          h1 { font-family: "Fraunces Soft", Georgia, serif; font-weight: 400; color: #A4402A;
                font-size: clamp(1.65rem, 1.15rem + 1.9vw, 2.15rem); line-height: 1.18; margin: 4.5rem 0 .6rem; }
           .lede { color: #6E655A; max-width: 34rem; margin: 0; }
           .feed { margin: 1.4rem 0 0; padding: .7rem 1rem; background: #EDE4D2; border-radius: 4px;
