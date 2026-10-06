@@ -16,10 +16,13 @@
   {{- end }}
   {{- if not $largest }}{{ $largest = $img.Resize (printf "%dx webp" $img.Width) }}{{ $set = slice (printf "%s %dw" $largest.RelPermalink $img.Width) }}{{ end }}
   {{- $portrait := gt $img.Height $img.Width }}
+  {{- $zoom := $largest }}
+  {{- if gt $img.Width 1400 }}{{ $zoom = $img.Resize (printf "%dx webp" (cond (gt $img.Width 2400) 2400 $img.Width)) }}{{ end }}
   <img src="{{ $largest.RelPermalink }}" srcset="{{ delimit $set ", " }}"
        sizes="(min-width: 1024px) {{ cond $portrait "26rem" "42rem" }}, 100vw"
        width="{{ $largest.Width }}" height="{{ $largest.Height }}"
-       alt="{{ $alt }}" loading="{{ cond (eq .Ordinal 0) "eager" "lazy" }}" decoding="async"{{ if $portrait }} class="portrait"{{ end }}>
+       alt="{{ $alt }}" loading="{{ cond (eq .Ordinal 0) "eager" "lazy" }}" decoding="async"{{ if $portrait }} class="portrait"{{ end }}
+       data-zoom="{{ $zoom.RelPermalink }}">
 {{- else }}
   <img src="{{ $src | safeURL }}" alt="{{ $alt }}" loading="lazy" decoding="async">
 {{- end }}

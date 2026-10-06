@@ -1,0 +1,8 @@
+{{- $res := transform.HighlightCodeBlock . }}
+{{- $file := .Attributes.file }}
+<div class="codeblock{{ with $file }} has-file{{ end }}">
+  {{- with $file }}<div class="code-file"><span>{{ . }}</span></div>{{ end }}
+  {{ $res.Wrapped }}
+  <button class="copy" type="button" aria-label="Copy code" hidden>Copy</button>
+</div>
+{{- /* */ -}}

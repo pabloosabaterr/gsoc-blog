@@ -62,11 +62,15 @@
     </nav>
     {{- end }}
     {{- with .File }}
-    <p class="edit">Found a typo? <a href="{{ site.Params.repo }}/blob/main/content/{{ .Path }}">Edit this page on GitHub</a>.</p>
+    <p class="edit"><a class="reply" href="{{ printf "mailto:%s?subject=%s" site.Params.email (replace (printf "Re: %s" $.Title | urlquery) "+" "%20") | safeURL }}">Reply by email</a> · Found a typo? <a href="{{ site.Params.repo }}/blob/main/content/{{ .Path }}">Edit this page on GitHub</a>.</p>
     {{- end }}
   </footer>
   {{- end }}
 </article>
+{{- if eq .Section "posts" }}
+{{- $pjs := resources.Get "js/post.js" | minify | fingerprint }}
+<script src="{{ $pjs.RelPermalink }}" integrity="{{ $pjs.Data.Integrity }}" defer></script>
+{{- end }}
 {{- if $showToc }}
 {{- $js := resources.Get "js/toc.js" | minify | fingerprint }}
 <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
