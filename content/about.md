@@ -33,12 +33,6 @@ sums it up.
 ## Elsewhere
 
 [GitHub](https://github.com/pabloosabaterr) ·
-[LinkedIn](https://www.linkedin.com/in/pablosabaterjimenez/) ·
-[RSS](/index.xml)
+[LinkedIn](https://www.linkedin.com/in/pablosabaterjimenez/)
 
 Email: <pablo@pablosabater.dev> or <pabloosabaterr@gmail.com>
-
----
-
-Set in Source Serif 4 and IBM Plex Mono. Built with Hugo, no JavaScript, no tracking.
-{.colophon}
