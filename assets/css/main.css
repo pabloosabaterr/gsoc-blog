@@ -55,7 +55,9 @@
   --heading: #8A2A1E;
   --title: #A4402A;
   --olive: #5E6A2B;
-  --rule: #E0D5C1;
+  --rule: rgba(164, 64, 42, .28);
+  --mark: rgba(164, 64, 42, .22);
+  --mark-soft: rgba(164, 64, 42, .1);
   --code-bg: #EDE4D2;
 
   --serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
@@ -134,7 +136,7 @@ main { display: block; padding-block: 4.5rem 3rem; }
   color: var(--muted); font-size: .85rem;
 }
 .site-footer .links { display: flex; flex-wrap: wrap; gap: 1.1rem; }
-.site-footer a { text-decoration-color: var(--rule); }
+.site-footer a { text-decoration-color: rgba(164, 64, 42, .45); }
 .site-footer a:hover { text-decoration-color: var(--accent); }
 
 /* ---------- shared type ---------- */
@@ -166,21 +168,23 @@ h1, h2, h3, h4 { font-weight: 600; text-wrap: balance; font-variant-numeric: lin
 /* ---------- home ---------- */
 .intro { max-width: var(--reading); font-size: 1.12rem; line-height: 1.55; }
 .intro p { margin: 0 0 .9rem; }
-.now { color: var(--muted); font-size: .95rem; margin: 1.4rem 0 0; }
-.now b { font-weight: 600; color: var(--fg); font-style: italic; }
+.now { color: var(--muted); font-size: .95rem; margin: 1.6rem 0 0; padding-left: .9rem; border-left: 2px solid var(--mark); }
+.now b { font-weight: 600; color: var(--accent); font-style: italic; }
 
 .section-label {
   margin: 4rem 0 1.1rem;
   font-size: .78rem; font-weight: 400; letter-spacing: .09em; text-transform: uppercase;
-  color: var(--muted);
+  color: var(--accent);
 }
 
 .posts { list-style: none; padding: 0; margin: 0; display: grid; gap: .55rem; }
 .posts li { display: grid; grid-template-columns: 4.6rem minmax(0, 1fr) auto; gap: 1rem; align-items: baseline; }
 .posts time { color: var(--muted); font-size: .88rem; font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
 .posts a { text-decoration: none; }
+.posts li { border-radius: 3px; }
+.posts li:hover { background: var(--mark-soft); box-shadow: 0 0 0 .35rem var(--mark-soft); }
 .posts a:hover { text-decoration: underline; text-decoration-color: var(--accent); color: var(--fg); }
-.posts .tag { color: var(--muted); font-size: .8rem; font-style: italic; white-space: nowrap; }
+.posts .tag { color: var(--accent); opacity: .8; font-size: .8rem; font-style: italic; white-space: nowrap; }
 @media (max-width: 639px) {
   .posts { gap: 1rem; }
   .posts li { grid-template-columns: minmax(0, 1fr); gap: 0; }
@@ -189,7 +193,7 @@ h1, h2, h3, h4 { font-weight: 600; text-wrap: balance; font-variant-numeric: lin
 }
 .more { display: inline-block; margin-top: 1.6rem; color: var(--muted); }
 
-.year { margin: 3rem 0 .9rem; font-size: 1.05rem; font-weight: 600; }
+.year { margin: 3rem 0 .9rem; font-size: 1.05rem; font-weight: 600; color: var(--accent); }
 .page-lede + .year, .page-title + .year { margin-top: 2.2rem; }
 
 .terms { list-style: none; padding: 0; margin: 2rem 0 0; display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; }
@@ -201,7 +205,7 @@ h1, h2, h3, h4 { font-weight: 600; text-wrap: balance; font-variant-numeric: lin
 .post-head { margin-bottom: 2.6rem; }
 .post-head h1 { margin-bottom: .8rem; }
 
-.epigraph { margin: 0 0 2.6rem; padding-left: 1.6rem; }
+.epigraph { margin: 0 0 2.6rem; padding: .1rem 0 .1rem 1.4rem; border-left: 2px solid var(--mark); }
 .epigraph p { margin: 0; }
 .epigraph .original { font-style: italic; color: var(--accent); font-size: 1.1rem; }
 .epigraph .translation { color: var(--muted); font-size: .85rem; margin-top: .2rem; }
@@ -230,7 +234,7 @@ h1, h2, h3, h4 { font-weight: 600; text-wrap: balance; font-variant-numeric: lin
 .prose h4 { font-size: 1rem; margin-top: 1.8em; }
 .prose h2, .prose h3 { color: var(--heading); font-weight: 700; letter-spacing: -.005em; position: relative; }
 .prose h2 + *, .prose h3 + *, .prose h4 + * { margin-top: .5em; }
-.prose h2 code, .prose h3 code { color: inherit; font-weight: 600; background: #EBDCCB; }
+.prose h2 code, .prose h3 code { color: inherit; font-weight: 600; }
 .prose .anchor {
   position: absolute; left: -1.2em; width: 1.2em; color: var(--muted);
   text-decoration: none; font-weight: 400; opacity: 0; transition: opacity .15s;
@@ -249,13 +253,13 @@ h1, h2, h3, h4 { font-weight: 600; text-wrap: balance; font-variant-numeric: lin
 
 .prose blockquote {
   margin-inline: 0; padding: .1rem 0 .1rem 1.2rem;
-  border-left: 2px solid var(--rule); color: var(--muted);
+  border-left: 2px solid var(--mark); color: var(--muted);
 }
 .prose blockquote > * { margin: 0; }
 .prose blockquote > * + * { margin-top: .8em; }
 
 .prose hr { border: 0; margin-block: 2.8em; text-align: center; height: auto; overflow: visible; }
-.prose hr::after { content: "⁂"; color: var(--muted); font-size: 1.15rem; letter-spacing: .3em; }
+.prose hr::after { content: "⁂"; color: var(--accent); opacity: .6; font-size: 1.15rem; letter-spacing: .3em; }
 
 .prose table { border-collapse: collapse; width: 100%; font-size: .92rem; font-variant-numeric: lining-nums tabular-nums; }
 .prose th { text-align: left; font-weight: 600; font-size: .78rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
@@ -269,7 +273,7 @@ h1, h2, h3, h4 { font-weight: 600; text-wrap: balance; font-variant-numeric: lin
 /* ---------- code ---------- */
 code, kbd, samp {
   font-family: var(--mono); font-size: .86em;
-  background: var(--code-bg); padding: .08em .3em; border-radius: 3px;
+  background: var(--mark-soft); padding: .08em .3em; border-radius: 3px;
   font-variant-numeric: normal;
 }
 pre {
@@ -340,3 +344,17 @@ figcaption { margin-top: .6rem; text-align: center; color: var(--muted); font-si
 .about-top img { width: 5rem; height: 5rem; border-radius: 4px; flex: none; }
 .about-top p { margin: 0; }
 @media (max-width: 400px) { .about-top { flex-direction: column; gap: 1rem; } }
+
+/* ---------- annotations ---------- */
+/* A translucent red marker, like a pen annotation over the paper. Use ==text== in Markdown. */
+mark {
+  color: inherit;
+  background: linear-gradient(to bottom, transparent 45%, var(--mark) 45%, var(--mark) 94%, transparent 94%);
+  padding: 0 .08em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+.meta a:hover, .meta a { text-decoration: none; }
+.post-head .meta a { color: var(--accent); opacity: .85; }
+.post-head .meta a:hover { opacity: 1; }
+.prose h2 code, .prose h3 code { background: var(--mark); }
+::selection { background: var(--mark); }

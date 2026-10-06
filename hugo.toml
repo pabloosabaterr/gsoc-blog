@@ -39,6 +39,8 @@ enableRobotsTXT = true
 [markup]
   [markup.goldmark.renderer]
     unsafe = true
+  [markup.goldmark.extensions.extras.mark]
+    enable = true
   [markup.goldmark.parser]
     wrapStandAloneImageWithinParagraph = false
     [markup.goldmark.parser.attribute]
