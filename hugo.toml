@@ -19,11 +19,11 @@ enableRobotsTXT = true
   author = 'Pablo Sabater'
   description = 'Pablo Sabater writes about the things he builds, breaks and learns: compilers, systems, open source and more.'
   # One line under the intro on the home page. Edit it whenever life changes.
-  now = 'building Orn, my own programming language.'
+  now = 'on an Erasmus semester at NOVA in Lisbon, and building [Orn](https://github.com/pabloosabaterr/Orn-rework), my own programming language.'
   repo = 'https://github.com/pabloosabaterr/gsoc-blog'
   github = 'https://github.com/pabloosabaterr'
   linkedin = 'https://www.linkedin.com/in/pablosabaterjimenez/'
-  email = 'pabloosabaterr@gmail.com'
+  email = 'pablo@pablosabater.dev'
   recentPosts = 15
 
 [menus]

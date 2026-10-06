@@ -22,7 +22,7 @@
   {{- end }}
 
   {{- if and .Params.toc (gt (len .Fragments.Headings) 0) }}
-  <nav class="toc" aria-label="Contents">{{ .TableOfContents }}</nav>
+  <details class="toc"><summary>Contents</summary>{{ .TableOfContents }}</details>
   {{- end }}
 
   <div class="prose">
