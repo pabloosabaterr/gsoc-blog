@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{- $isPost := in (slice "posts" "life") .Section }}
 {{- if $isPost }}<div class="progress" aria-hidden="true"></div>{{ end }}
-<article class="post{{ with .Params.style }} style-{{ . }}{{ end }}">
+<article class="{{ if $isPost }}post{{ else }}page{{ end }}{{ with .Params.style }} style-{{ . }}{{ end }}">
   {{- if $isPost }}
   <header class="post-head dotted-head">
     <h1>{{ .Title }}</h1>
@@ -20,7 +20,7 @@
   </blockquote>
   {{- end }}
   {{- else }}
-  <h1 class="page-title">{{ .Title }}</h1>
+  <header class="dotted-head"><h1 class="page-title">{{ .Title }}</h1></header>
   {{- end }}
 
   {{- $showToc := and (ne .Params.toc false) $isPost (ge (len (.Fragments.Identifiers)) 2) }}

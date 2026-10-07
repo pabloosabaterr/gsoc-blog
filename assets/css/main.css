@@ -765,3 +765,11 @@ img.zoomable:hover { transform: scale(1.005); }
 .project .summary code { white-space: nowrap; }
 .prose a.hot { color: var(--accent); font-weight: 600; text-decoration-color: var(--mark); }
 .prose a.hot:hover { text-decoration-color: var(--accent); }
+
+/* Plain pages (About) align with Writing and Projects: left edge of the content column. */
+.page .prose { max-width: var(--reading); }
+.page .dotted-head { margin-bottom: 1.4rem; }
+.page .page-title { margin-bottom: 0; }
+@media (min-width: 640px) {
+  .page .prose > .codeblock, .page .prose > pre, .page .prose > figure, .page .prose > .highlight { margin-inline: 0; }
+}
