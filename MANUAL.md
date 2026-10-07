@@ -147,6 +147,38 @@ Orn has no built-in types{{< note >}}Not even `bool`: it's `0..1`.{{< /note >}} 
 
 Los enlaces a tus propios posts y proyectos muestran una tarjetita con título, fecha y primera frase al pasar el ratón. Funciona sola, solo tienes que enlazar con la ruta que empieza por `/posts/` o `/projects/`.
 
+### Referencias a otros blogs y artículos
+
+Declara las fuentes en la cabecera, una por bloque, en el orden en que quieras que salgan:
+
+```toml
+[[references]]
+  id = 'matklad'
+  title = 'Simple but Powerful Pratt Parsing'
+  author = 'Alex Kladov'
+  url = 'https://matklad.github.io/2020/04/13/simple-but-powerful-pratt-parsing.html'
+  year = 2020
+  note = 'Una frase tuya sobre por qué merece la pena.'
+
+[[references]]
+  title = 'Top Down Operator Precedence'
+  author = 'Vaughan Pratt'
+  year = 1973
+```
+
+Y cítalas en el texto por su `id` o por su número:
+
+```md
+Pratt parsing{{</* cite matklad */>}} goes back to a 1973 paper{{</* cite 2 */>}}.
+```
+
+(En tus posts, sin `/*` ni `*/`.)
+
+- En el texto sale un número rojo pequeño, `[1]`, que lleva a la fuente. Al pasar el ratón muestra el título, el autor y tu nota.
+- Al final del post aparece una sección **References** con todas, numeradas, aunque no las cites en el texto (sirve también como “lecturas recomendadas”).
+- Solo `title` es obligatorio. Sin `url`, el título sale en cursiva sin enlace (útil para libros o papers en papel).
+- Si citas un `id` o un número que no existe, el build falla y te dice cuál: así no se publica una cita rota.
+
 ### Citas, listas, tablas y separadores
 
 ```md

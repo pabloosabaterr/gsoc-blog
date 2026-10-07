@@ -1,0 +1,15 @@
+{{- with .Params.references }}
+<section class="references" aria-labelledby="references">
+  <h2 id="references">References</h2>
+  <ol>
+    {{- range $i, $r := . }}
+    <li id="ref-{{ add $i 1 }}">
+      {{- with $r.author }}<span class="r-author">{{ . }}</span>, {{ end -}}
+      {{- if $r.url }}<a href="{{ $r.url }}">{{ $r.title }}</a>{{ else }}<cite>{{ $r.title }}</cite>{{ end -}}
+      {{- with $r.year }} <span class="r-year">({{ . }})</span>{{ end -}}
+      {{- with $r.note }}<span class="r-note">{{ . | markdownify }}</span>{{ end }}
+    </li>
+    {{- end }}
+  </ol>
+</section>
+{{- end }}

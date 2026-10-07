@@ -37,6 +37,7 @@
   <div class="prose">
     {{ .Content }}
   </div>
+  {{- if $isPost }}{{ partial "references.html" . }}{{ end }}
 
   {{- if $isPost }}
   <footer class="post-foot">

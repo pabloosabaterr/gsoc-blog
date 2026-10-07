@@ -1,0 +1,14 @@
+{{- /* Inline citation to an entry in the post's `references`.
+       Usage: {{< cite 1 >}} (by number) or {{< cite matklad >}} (by id). */ -}}
+{{- $key := .Get 0 }}
+{{- $refs := .Page.Params.references }}
+{{- $n := 0 }}{{ $r := dict }}
+{{- range $i, $e := $refs }}
+  {{- if or (eq (string (add $i 1)) (string $key)) (eq (string $e.id) (string $key)) }}{{ $n = add $i 1 }}{{ $r = $e }}{{ end }}
+{{- end }}
+{{- if $n -}}
+<sup class="cite"><a href="#ref-{{ $n }}" id="cite-{{ $n }}-{{ .Ordinal }}"
+  data-preview-kind="{{ with $r.author }}{{ . }}{{ end }}{{ with $r.year }}{{ if $r.author }} · {{ end }}{{ . }}{{ end }}"
+  data-preview-title="{{ $r.title }}"
+  data-preview-desc="{{ with $r.note }}{{ . }}{{ else }}{{ with $r.url }}{{ (urls.Parse .).Host | strings.TrimPrefix "www." }}{{ end }}{{ end }}">[{{ $n }}]</a></sup>
+{{- else }}{{ errorf "cite: no reference %q in %s" $key .Page.File.Path }}{{ end -}}

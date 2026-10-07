@@ -15,5 +15,13 @@ tags = []
 # Contents appear by themselves when the post has two or more sections.
 # Set to false to hide them.
 # toc = false
+# Sources you cite in the text with the cite shortcode (see MANUAL.md). Optional, repeat the block.
+# [[references]]
+#   id = 'short-name'
+#   title = ''
+#   author = ''
+#   url = ''
+#   year = 2020
+#   note = ''
 +++
 

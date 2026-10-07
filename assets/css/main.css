@@ -783,3 +783,20 @@ img.zoomable:hover { transform: scale(1.005); }
 }
 @media (max-width: 400px) { .about-top img { width: 6rem; height: 6rem; align-self: flex-start; } }
 .about-top img { margin-block: .4em .45em; }
+
+/* ---------- references ---------- */
+.cite { line-height: 0; font-size: .7em; margin-left: .08em; }
+.cite a { text-decoration: none; color: var(--accent); font-weight: 600; font-variant-numeric: lining-nums; }
+.cite a:hover { text-decoration: underline; }
+.references { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); }
+.references h2 {
+  margin: 0 0 .9rem; font-size: .78rem; font-weight: 400; letter-spacing: .09em; text-transform: uppercase; color: var(--accent);
+}
+.references ol { margin: 0; padding-left: 1.6rem; display: grid; gap: .7rem; font-size: .9rem; line-height: 1.45; }
+.references ::marker { color: var(--accent); font-variant-numeric: lining-nums tabular-nums; }
+.references a { color: var(--fg); }
+.references .r-author { color: var(--fg); }
+.references .r-year { color: var(--muted); }
+.references .r-note { display: block; color: var(--muted); font-style: italic; font-size: .92em; margin-top: .15rem; }
+.references li { scroll-margin-top: 2rem; border-radius: 3px; transition: background-color .6s ease; }
+.references li:target { background: var(--mark-soft); box-shadow: 0 0 0 .4rem var(--mark-soft); }
