@@ -309,7 +309,7 @@ pre code[data-lang]::before {
 figure { margin-inline: 0; }
 figure img { display: block; width: 100%; border-radius: 3px; }
 /* Small hand-drawn diagrams: keep them at their natural size, centered. */
-figure.sketch img { width: min(100%, 20rem); margin-inline: auto; border-radius: 0; }
+figure.sketch img { width: auto; height: 10em; max-width: 100%; object-fit: contain; margin-inline: auto; border-radius: 0; }
 figure img.portrait { width: auto; max-height: 34rem; max-width: 100%; margin-inline: auto; }
 figcaption { margin-top: .6rem; text-align: center; color: var(--muted); font-size: .85rem; font-style: italic; }
 
