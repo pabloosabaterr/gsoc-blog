@@ -1,7 +1,7 @@
 +++
 title = 'Orn'
-description = 'Orn, a systems language where every type is a range.'
-summary = 'A systems language where every type is a range, with a compiler written in C.'
+description = 'Orn, a range-based systems programming language.'
+summary = "A range-based systems programming language. I'm not building it to be useful, but to explore an idea."
 status = 'Active'
 weight = 1
 [[links]]
@@ -12,9 +12,10 @@ weight = 1
   url = 'https://pabloosabaterr.github.io/Orn-rework/'
 +++
 
-Orn is a systems language where every type is a range. There are no built-in
-types: a value is described by the set of integers it can hold, and the compiler
-tracks that set through the program.
+Orn is a range-based systems programming language. I'm not building it to be
+useful, but to explore an idea: there are no built-in types. A value is described
+by the set of integers it can hold, and the compiler tracks that set through the
+program.
 
 ```
 u8 :: 0..255;

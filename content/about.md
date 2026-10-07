@@ -5,20 +5,16 @@ description = 'Who Pablo Sabater is and where to find him.'
 
 {{< portrait >}}
 Hi, I'm Pablo. I'm a Computer Science and Engineering student at the University of
-Murcia, in Spain, spending this semester on Erasmus at NOVA in Lisbon. I like understanding
-how things work underneath, and then building my own version to check that I
-really did.
+Murcia, in Spain, spending a year on Erasmus at NOVA in Lisbon. I like understanding
+how things work underneath.
 {{< /portrait >}}
 
-Most of what I do lives close to the machine: compilers, languages, systems
-programming and the tools developers use every day. This site is where I write
-about that, and about anything else I want to remember.
+Most of what I do and find interesting tends to be low level. That's where I'm
+most curious: compilers, developer tools and the like.
 
 ## Projects
 
-The things I build live in [Projects](/projects/), each with the posts I've
-written about it. Right now that's [Orn](/projects/orn/), my own programming
-language, and my [Google Summer of Code at Git](/projects/git/).
+What I'm building is in [Projects](/projects/).
 
 ## Elsewhere
 

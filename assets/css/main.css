@@ -762,3 +762,4 @@ img.zoomable:hover { transform: scale(1.005); }
   background-size: 22px 22px;
   background-position: center 11px;
 }
+.project .summary code { white-space: nowrap; }

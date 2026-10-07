@@ -273,7 +273,6 @@ Los proyectos salen también en la home, encima de “Recent writing”.
 | Qué | Dónde |
 | --- | --- |
 | Presentación de la home (“Hi, I'm Pablo…”) | `content/_index.md` |
-| Línea **Currently** | `hugo.toml`, parámetro `now`. Admite Markdown (enlaces). |
 | Número de posts en “Recent writing” | `hugo.toml`, `recentPosts` |
 | Email, GitHub, LinkedIn del pie | `hugo.toml`, `email`, `github`, `linkedin` |
 | Página About | `content/about.md` |

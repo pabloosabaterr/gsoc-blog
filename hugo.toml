@@ -18,9 +18,7 @@ enableRobotsTXT = true
 
 [params]
   author = 'Pablo Sabater'
-  description = 'Pablo Sabater writes about the things he builds, breaks and learns: compilers, systems, open source and more.'
-  # One line under the intro on the home page. Edit it whenever life changes.
-  now = 'on an Erasmus semester at NOVA in Lisbon, and building [Orn](https://github.com/pabloosabaterr/Orn-rework), my own programming language.'
+  description = 'Pablo Sabater writes about what he finds interesting: compilers, low-level tools, open source and life.'
   repo = 'https://github.com/pabloosabaterr/gsoc-blog'
   github = 'https://github.com/pabloosabaterr'
   linkedin = 'https://www.linkedin.com/in/pablosabaterjimenez/'

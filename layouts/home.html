@@ -1,7 +1,6 @@
 {{ define "main" }}
 <header class="dotted-head">
 <div class="intro">{{ .Content }}</div>
-{{ with site.Params.now }}<p class="now"><b>Currently</b> {{ . | markdownify }}</p>{{ end }}
 </header>
 {{ with site.GetPage "/projects" }}
 <h2 class="section-label">Projects</h2>
