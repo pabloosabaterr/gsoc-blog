@@ -8,11 +8,10 @@
   {{- $n := len .Pages }}
   <li class="project">
     <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-    <p class="meta">
-      {{- with .Params.status }}<span class="status status-{{ . | urlize }}">{{ . }}</span>{{ end }}
-      {{- with .Params.year }} · {{ . }}{{ end }}
-      {{- if $n }} · {{ $n }} {{ cond (eq $n 1) "post" "posts" }}{{ end }}
-    </p>
+    {{- $bits := slice }}
+    {{- with .Params.year }}{{ $bits = $bits | append (string .) }}{{ end }}
+    {{- if $n }}{{ $bits = $bits | append (printf "%d %s" $n (cond (eq $n 1) "post" "posts")) }}{{ end }}
+    {{- with $bits }}<p class="meta">{{ delimit . " · " }}</p>{{ end }}
     {{ with .Params.summary }}<p class="summary">{{ . | markdownify }}</p>{{ end }}
     {{- with .Params.links }}
     <p class="links">{{ range $i, $l := . }}{{ if $i }} · {{ end }}<a href="{{ $l.url }}">{{ $l.name }}</a>{{ end }}</p>

@@ -2,7 +2,6 @@
 title = 'Orn'
 description = 'Orn, a range-based systems programming language.'
 summary = "A range-based systems programming language. I'm not building it to be useful, but to explore an idea."
-status = 'Active'
 weight = 1
 [[links]]
   name = 'Repository'

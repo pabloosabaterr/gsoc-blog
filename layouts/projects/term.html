@@ -2,11 +2,10 @@
 <header class="dotted-head">
 <p class="meta"><a href="{{ .Parent.RelPermalink }}">Projects</a></p>
 <h1 class="page-title">{{ .Title }}</h1>
-<p class="meta project-meta">
-  {{- with .Params.status }}<span class="status status-{{ . | urlize }}">{{ . }}</span>{{ end }}
-  {{- with .Params.year }} · {{ . }}{{ end }}
-  {{- range .Params.links }} · <a href="{{ .url }}">{{ .name }}</a>{{ end }}
-</p>
+{{- $bits := slice }}
+{{- with .Params.year }}{{ $bits = $bits | append (string .) }}{{ end }}
+{{- range .Params.links }}{{ $bits = $bits | append (printf `<a href="%s">%s</a>` .url .name) }}{{ end }}
+{{- with $bits }}<p class="meta project-meta">{{ delimit . " · " | safeHTML }}</p>{{ end }}
 </header>
 <div class="post project-body">
   <div class="prose">{{ .Content }}</div>

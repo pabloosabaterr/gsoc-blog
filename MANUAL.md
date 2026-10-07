@@ -237,7 +237,6 @@ Crea `content/projects/<nombre>/_index.md`. La carpeta es el nombre en minúscul
 title = 'Orn'
 description = 'Una frase para buscadores.'
 summary = 'Una frase para la lista de proyectos.'
-status = 'Active'
 year = 2026
 weight = 1
 [[links]]
@@ -255,8 +254,7 @@ Descripción del proyecto en Markdown. Puede llevar código, enlaces, etc.
 | --- | --- |
 | `title` | Nombre del proyecto. Es lo que pones en `projects = [...]` de los posts. |
 | `summary` | Frase que sale en `/projects/`. |
-| `status` | `Active` (punto rojo que late), `Finished` o `Paused` (en gris). |
-| `year` | Año, sale junto al estado. Opcional. |
+| `year` | Año en que empezó, sale junto al nombre. Opcional. |
 | `weight` | Orden en la lista: el número más bajo sale primero. |
 | `links` | Enlaces que salen junto al estado. Puedes poner los que quieras. |
 

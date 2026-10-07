@@ -7,9 +7,9 @@
 <ul class="home-projects">
   {{- range .Pages.ByWeight }}
   <li>
-    <span class="status-dot status-{{ .Params.status | urlize }}" aria-hidden="true"></span>
+    <span class="status-dot" aria-hidden="true"></span>
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    {{- with .Params.status }}<span class="st">{{ lower . }}</span>{{ end }}
+    {{- with len .Pages }}<span class="st">{{ . }} {{ cond (eq . 1) "post" "posts" }}</span>{{ end }}
   </li>
   {{- end }}
 </ul>

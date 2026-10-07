@@ -1,5 +1,5 @@
 {{- $img := resources.Get "me.jpg" }}
-{{- $r := $img.Fill "192x192 Center webp" }}
+{{- $r := $img.Fill "360x360 Center webp" }}
 <div class="about-top">
   <img src="{{ $r.RelPermalink }}" width="96" height="96" alt="Portrait of Pablo">
   <div>{{ .Inner | .Page.RenderString (dict "display" "block") }}</div>

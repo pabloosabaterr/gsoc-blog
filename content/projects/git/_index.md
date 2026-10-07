@@ -3,7 +3,6 @@ title = 'Git'
 description = 'My Google Summer of Code 2026 at Git.'
 aliases = ['/series/gsoc-2026/']
 summary = 'My Google Summer of Code 2026 at Git: remote-object-info for cat-file, `%(objecttype)` support and graph indentation.'
-status = 'Finished'
 year = 2026
 weight = 2
 [[links]]

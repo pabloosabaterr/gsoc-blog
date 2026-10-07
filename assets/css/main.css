@@ -773,3 +773,13 @@ img.zoomable:hover { transform: scale(1.005); }
 @media (min-width: 640px) {
   .page .prose > .codeblock, .page .prose > pre, .page .prose > figure, .page .prose > .highlight { margin-inline: 0; }
 }
+.status-dot { background: var(--accent); opacity: .7; animation: none; }
+
+/* About: the portrait is as tall as the paragraph next to it. */
+.about-top { align-items: stretch; }
+.about-top img {
+  width: auto; height: auto; min-height: 5rem; max-width: 9rem;
+  aspect-ratio: 1; object-fit: cover; align-self: stretch;
+}
+@media (max-width: 400px) { .about-top img { width: 6rem; height: 6rem; align-self: flex-start; } }
+.about-top img { margin-block: .4em .45em; }
