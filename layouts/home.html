@@ -3,6 +3,8 @@
 <div class="intro">{{ .Content }}</div>
 </header>
 {{ with site.GetPage "/projects" }}
+<section class="home-projects-wrap">
+<div>
 <h2 class="section-label">Projects</h2>
 <ul class="home-projects">
   {{- range .Pages.ByWeight }}
@@ -14,6 +16,12 @@
   {{- end }}
 </ul>
 <a class="more" href="{{ .RelPermalink }}">All projects <span class="arr" aria-hidden="true">→</span></a>
+</div>
+<figure class="meme">
+  <img src="/img/xkcd-dependency.png" width="725" height="924" alt="A tower of blocks labelled all modern digital infrastructure, resting on one tiny block: a project some random person in Nebraska has been thanklessly maintaining since 2003.">
+  <figcaption>From <a href="https://xkcd.com/2347/">xkcd</a></figcaption>
+</figure>
+</section>
 {{ end }}
 {{ $posts := where site.RegularPages "Section" "posts" }}
 <h2 class="section-label">Recent writing</h2>

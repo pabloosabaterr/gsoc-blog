@@ -800,3 +800,14 @@ img.zoomable:hover { transform: scale(1.005); }
 .references .r-note { display: block; color: var(--muted); font-style: italic; font-size: .92em; margin-top: .15rem; }
 .references li { scroll-margin-top: 2rem; border-radius: 3px; transition: background-color .6s ease; }
 .references li:target { background: var(--mark-soft); box-shadow: 0 0 0 .4rem var(--mark-soft); }
+
+/* xkcd comic next to Projects on the home page */
+.home-projects-wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 1rem; }
+.meme { margin: 0; width: 15rem; }
+.meme img { display: block; width: 100%; height: auto; }
+.meme figcaption { margin-top: .4rem; font-size: .7rem; color: var(--muted); text-align: right; font-style: italic; }
+.meme figcaption a { color: inherit; text-decoration-color: var(--rule); }
+@media (max-width: 639px) {
+  .home-projects-wrap { grid-template-columns: 1fr; }
+  .meme { width: 12rem; justify-self: center; }
+}
