@@ -10,8 +10,8 @@ Todo lo que necesitas para escribir y mantener el sitio. Este archivo vive en la
 
 ```sh
 brew install hugo
-git clone https://github.com/pabloosabaterr/gsoc-blog
-cd gsoc-blog
+git clone https://github.com/pabloosabaterr/pablosabater.dev
+cd pablosabater.dev
 ```
 
 ### Ver el sitio mientras escribes

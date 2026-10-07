@@ -19,7 +19,7 @@ enableRobotsTXT = true
 [params]
   author = 'Pablo Sabater'
   description = 'Pablo Sabater writes about what he finds interesting: compilers, low-level tools, open source and life.'
-  repo = 'https://github.com/pabloosabaterr/gsoc-blog'
+  repo = 'https://github.com/pabloosabaterr/pablosabater.dev'
   github = 'https://github.com/pabloosabaterr'
   linkedin = 'https://www.linkedin.com/in/pablosabaterjimenez/'
   email = 'pablo@pablosabater.dev'
