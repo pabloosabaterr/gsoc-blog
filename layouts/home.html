@@ -18,7 +18,15 @@
 <a class="more" href="{{ .RelPermalink }}">All projects <span class="arr" aria-hidden="true">→</span></a>
 </div>
 <figure class="meme">
-  <img src="/img/xkcd-dependency.webp" width="725" height="924" alt="A tower of blocks labelled all modern digital infrastructure, resting on one tiny block: a project some random person in Nebraska has been thanklessly maintaining since 2003.">
+  <img id="xkcd" src="/img/xkcd-dependency.webp" width="725" height="924" alt="A tower of blocks labelled all modern digital infrastructure, resting on one tiny block: a project some random person in Nebraska has been thanklessly maintaining since 2003.">
+  <script>
+    /* One visit in five, the tiny block is Skarner. */
+    if (Math.random() < 0.2) {
+      var x = document.getElementById('xkcd');
+      x.src = '/img/xkcd-dependency-skarner.webp';
+      x.alt = 'A tower of blocks labelled all modern digital infrastructure, resting on one tiny block labelled Skarner.';
+    }
+  </script>
   <figcaption>From <a href="https://xkcd.com/2347/">xkcd</a></figcaption>
 </figure>
 </section>
