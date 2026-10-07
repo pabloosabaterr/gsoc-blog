@@ -763,3 +763,5 @@ img.zoomable:hover { transform: scale(1.005); }
   background-position: center 11px;
 }
 .project .summary code { white-space: nowrap; }
+.prose a.hot { color: var(--accent); font-weight: 600; text-decoration-color: var(--mark); }
+.prose a.hot:hover { text-decoration-color: var(--accent); }

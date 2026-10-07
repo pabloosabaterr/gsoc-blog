@@ -12,9 +12,7 @@ how things work underneath.
 Most of what I do and find interesting tends to be low level. That's where I'm
 most curious: compilers, developer tools, etc.
 
-## Projects
-
-What I'm building is in [Projects](/projects/).
+If you want to see what I'm building, check out my <a class="hot" href="/projects/">projects</a>.
 
 ## Elsewhere
 
