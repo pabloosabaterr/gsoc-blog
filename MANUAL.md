@@ -89,7 +89,7 @@ image = 'portada.jpg'
 | `title` | Título del post. Sale en rojo con la letra de los títulos. |
 | `date` | Fecha del post. **Si la pones en el futuro, el post no aparece** hasta ese día. |
 | `draft` | `true` = borrador, no se publica. `false` = se publica. |
-| `description` | Resumen de una frase. Si lo dejas vacío, se usa el principio del post. |
+| `description` | Resumen de una frase. Sale debajo del título, en cursiva gris, y se usa en buscadores, al compartir y en las tarjetas de enlaces. Si lo dejas vacío, no se muestra y en esos sitios se usa el principio del post. |
 | `tags` | Etiquetas en minúscula, de 1 a 3. Cada una tiene su página: `/tags/orn/`. |
 | `projects` | Solo en Writing. Proyectos a los que pertenece el post. Usa el título exacto del proyecto: `['Orn']`, `['Git']`. Puede estar en varios. |
 | `epigraph` | El refrán que sale arriba, en rojo y en cursiva. Sin punto final, lo pone el sitio. |

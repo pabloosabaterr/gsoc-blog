@@ -811,3 +811,6 @@ img.zoomable:hover { transform: scale(1.005); }
   .home-projects-wrap { grid-template-columns: 1fr; }
   .meme { width: 12rem; justify-self: center; }
 }
+
+/* Post description, shown under the title */
+.post-head .dek { margin: -.2rem 0 .9rem; font-size: 1.12rem; line-height: 1.45; color: var(--muted); font-style: italic; max-width: var(--reading); }
