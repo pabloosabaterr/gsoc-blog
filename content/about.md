@@ -10,7 +10,7 @@ how things work underneath.
 {{< /portrait >}}
 
 Most of what I do and find interesting tends to be low level. That's where I'm
-most curious: compilers, developer tools and the like.
+most curious: compilers, developer tools, etc.
 
 ## Projects
 

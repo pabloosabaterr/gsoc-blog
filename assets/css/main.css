@@ -552,7 +552,7 @@ html { scroll-behavior: smooth; }
 }
 
 /* ---------- name ---------- */
-.intro .name { color: var(--title); }
+.intro .name { color: var(--title); font-weight: 600; }
 
 /* ---------- projects on the home page ---------- */
 .home-projects { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
