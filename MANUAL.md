@@ -99,6 +99,8 @@ image = 'portada.jpg'
 | `toc` | El índice (“Contents”) sale solo si el post tiene 2 o más secciones `##`. Pon `toc = false` para quitarlo en un post concreto. |
 | `image` | Imagen propia para cuando se comparte el enlace. Si no la pones, se genera una tarjeta automática con el título. |
 
+**Importante:** los bloques `[[references]]` van siempre al final de la cabecera. Cualquier campo que escribas debajo de uno (por ejemplo `github`) se queda dentro de esa referencia y no hace nada en el post.
+
 ---
 
 ## 4. Escribir el texto
