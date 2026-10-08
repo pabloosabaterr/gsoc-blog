@@ -816,3 +816,23 @@ img.zoomable:hover { transform: scale(1.005); }
 
 /* Post description, shown under the title */
 .post-head .dek { margin: -.2rem 0 .9rem; font-size: 1.12rem; line-height: 1.45; color: var(--muted); font-style: italic; max-width: var(--reading); }
+
+/* GitHub repo linked from a post (front matter `github`). */
+.gh-mark { width: 1em; height: 1em; flex: none; }
+.repo-link { margin: .55rem 0 0; font-family: var(--mono); font-size: .8rem; }
+.repo-link a { display: inline-flex; align-items: center; gap: .45em; color: var(--accent); text-decoration: none; opacity: .85; transition: opacity .2s; }
+.repo-link a:hover { opacity: 1; }
+.repo-link a:hover span { text-decoration: underline; text-underline-offset: .2em; }
+.repo-card {
+  display: flex; align-items: center; gap: .9rem;
+  justify-self: start; border-left: 2px solid var(--mark); padding: .35rem 0 .35rem 1rem;
+  color: var(--fg); text-decoration: none;
+}
+.repo-card .gh-mark { width: 1.6rem; height: 1.6rem; color: var(--fg); transition: color .2s; }
+.repo-card .repo-text { display: grid; gap: .1rem; min-width: 0; }
+.repo-card .k { color: var(--accent); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+.repo-card .name { font-family: var(--mono); font-size: .9rem; font-weight: 600; overflow-wrap: anywhere; }
+.repo-card .arr { color: var(--accent); margin-left: .2rem; transition: transform .2s; }
+.repo-card:hover .gh-mark { color: var(--accent); }
+.repo-card:hover .arr { transform: translateX(3px); }
+@media (prefers-reduced-motion: reduce) { .repo-card .arr { transition: none; } }

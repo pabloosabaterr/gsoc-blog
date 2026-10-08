@@ -9,6 +9,9 @@ tags = []
 # Projects this post belongs to (the playlist on each project page).
 # Use the project's title, e.g. ['Orn'] or ['Git'].
 # projects = []
+# GitHub repo with the code for this post, shown at the top and bottom.
+# 'owner/repo' or the full URL.
+# github = ''
 # A refrán (or any quote) shown above the post. Optional.
 # epigraph = ''
 # epigraph_translation = ''

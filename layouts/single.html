@@ -1,5 +1,11 @@
 {{ define "main" }}
 {{- $isPost := in (slice "posts" "life") .Section }}
+{{- /* `github` in front matter: 'owner/repo' or a full GitHub URL. */ -}}
+{{- $repoURL := "" }}{{ $repoName := "" }}
+{{- with .Params.github }}
+  {{- $repoName = strings.TrimSuffix "/" (strings.TrimPrefix "https://github.com/" .) }}
+  {{- $repoURL = printf "https://github.com/%s" $repoName }}
+{{- end }}
 {{- if $isPost }}<div class="progress" aria-hidden="true"></div>{{ end }}
 <article class="{{ if $isPost }}post{{ else }}page{{ end }}{{ with .Params.style }} style-{{ . }}{{ end }}">
   {{- if $isPost }}
@@ -13,6 +19,9 @@
       {{- range .GetTerms "projects" }} · <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
       {{- range .GetTerms "tags" }} · <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
     </p>
+    {{- with $repoURL }}
+    <p class="repo-link"><a href="{{ . }}">{{ partial "github-mark.html" }}<span>{{ $repoName }}</span></a></p>
+    {{- end }}
   </header>
   {{- with .Params.epigraph }}
   <blockquote class="epigraph">
@@ -44,6 +53,13 @@
 
   {{- if $isPost }}
   <footer class="post-foot">
+    {{- with $repoURL }}
+    <a class="repo-card" href="{{ . }}">
+      {{ partial "github-mark.html" }}
+      <span class="repo-text"><span class="k">Code on GitHub</span><span class="name">{{ $repoName }}</span></span>
+      <span class="arr" aria-hidden="true">→</span>
+    </a>
+    {{- end }}
     {{- range .GetTerms "projects" }}
     {{- $list := .Pages.ByDate }}
     {{- $i := 0 }}{{ range $k, $p := $list }}{{ if eq $p $ }}{{ $i = add $k 1 }}{{ end }}{{ end }}

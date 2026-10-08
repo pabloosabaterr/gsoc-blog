@@ -77,6 +77,7 @@ draft = false
 description = 'Una frase para buscadores y para la tarjeta al compartir.'
 tags = ['orn', 'compilers']
 projects = ['Orn']
+github = 'pabloosabaterr/Orn-rework'
 epigraph = 'Poco a poco se anda lejos'
 epigraph_translation = 'Little by little, one goes far.'
 toc = false
@@ -92,6 +93,7 @@ image = 'portada.jpg'
 | `description` | Resumen de una frase. Sale debajo del título, en cursiva gris, y se usa en buscadores, al compartir y en las tarjetas de enlaces. Si lo dejas vacío, no se muestra y en esos sitios se usa el principio del post. |
 | `tags` | Etiquetas en minúscula, de 1 a 3. Cada una tiene su página: `/tags/orn/`. |
 | `projects` | Solo en Writing. Proyectos a los que pertenece el post. Usa el título exacto del proyecto: `['Orn']`, `['Git']`. Puede estar en varios. |
+| `github` | Repositorio de GitHub con el código del post: `'usuario/repo'` o la URL completa. Sale con el logo de GitHub debajo de la fecha y como enlace grande al final del post. |
 | `epigraph` | El refrán que sale arriba, en rojo y en cursiva. Sin punto final, lo pone el sitio. |
 | `epigraph_translation` | Traducción del refrán, debajo en gris. |
 | `toc` | El índice (“Contents”) sale solo si el post tiene 2 o más secciones `##`. Pon `toc = false` para quitarlo en un post concreto. |
