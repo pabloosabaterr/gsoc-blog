@@ -19,7 +19,6 @@ tags = []
 # Set to false to hide them.
 # toc = false
 # Sources you cite in the text with the cite shortcode (see MANUAL.md). Optional, repeat the block.
-# Keep these blocks last: any field written below one belongs to that reference.
 # [[references]]
 #   id = 'short-name'
 #   title = ''
