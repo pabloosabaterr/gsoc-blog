@@ -823,16 +823,7 @@ img.zoomable:hover { transform: scale(1.005); }
 .repo-link a { display: inline-flex; align-items: center; gap: .45em; color: var(--accent); text-decoration: none; opacity: .85; transition: opacity .2s; }
 .repo-link a:hover { opacity: 1; }
 .repo-link a:hover span { text-decoration: underline; text-underline-offset: .2em; }
-.repo-card {
-  display: flex; align-items: center; gap: .9rem;
-  justify-self: start; border-left: 2px solid var(--mark); padding: .35rem 0 .35rem 1rem;
-  color: var(--fg); text-decoration: none;
-}
-.repo-card .gh-mark { width: 1.6rem; height: 1.6rem; color: var(--fg); transition: color .2s; }
-.repo-card .repo-text { display: grid; gap: .1rem; min-width: 0; }
-.repo-card .k { color: var(--accent); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
-.repo-card .name { font-family: var(--mono); font-size: .9rem; font-weight: 600; overflow-wrap: anywhere; }
-.repo-card .arr { color: var(--accent); margin-left: .2rem; transition: transform .2s; }
-.repo-card:hover .gh-mark { color: var(--accent); }
-.repo-card:hover .arr { transform: translateX(3px); }
-@media (prefers-reduced-motion: reduce) { .repo-card .arr { transition: none; } }
+.repo-line { margin: 0; border-left: 2px solid var(--mark); padding: .2rem 0 .2rem 1rem; color: var(--muted); font-size: .92rem; }
+.repo-line .k { color: var(--accent); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; margin-right: .3rem; }
+.repo-line a { display: inline-flex; align-items: center; gap: .4em; vertical-align: -.1em; color: var(--fg); text-decoration: none; font-family: var(--mono); font-size: .85rem; transition: color .2s; }
+.repo-line a:hover { color: var(--accent); }

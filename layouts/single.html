@@ -54,11 +54,7 @@
   {{- if $isPost }}
   <footer class="post-foot">
     {{- with $repoURL }}
-    <a class="repo-card" href="{{ . }}">
-      {{ partial "github-mark.html" }}
-      <span class="repo-text"><span class="k">Code on GitHub</span><span class="name">{{ $repoName }}</span></span>
-      <span class="arr" aria-hidden="true">→</span>
-    </a>
+    <p class="repo-line"><span class="k">Code</span> <a href="{{ . }}">{{ partial "github-mark.html" }}<span>{{ $repoName }}</span></a></p>
     {{- end }}
     {{- range .GetTerms "projects" }}
     {{- $list := .Pages.ByDate }}
