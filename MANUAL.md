@@ -122,6 +122,7 @@ image = 'portada.jpg'
 | `*cursiva*` | *cursiva* |
 | `**negrita**` | **negrita** |
 | `==texto==` | Subrayado de rotulador rojo. |
+| `<u>texto</u>` | Subrayado ondulado rojo, fino. Distinto de los enlaces, que llevan línea recta. |
 | `~~texto~~` | Tachado con una raya roja. |
 | `{{</* circle */>}}palabra{{</* /circle */>}}` | Círculo rojo dibujado a mano alrededor de la palabra. Se dibuja solo al llegar con el scroll. |
 | `` `código` `` | Código dentro de una frase. |
