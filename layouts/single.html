@@ -39,7 +39,7 @@
   {{- if $showToc }}
   <aside class="toc-side" aria-label="Contents">
     <nav class="toc-rail">
-      <p class="toc-title">Contents</p>
+      <p class="toc-title"><span>Contents</span>{{ with .Params.references }}<a class="toc-refs" href="#references">References</a>{{ end }}</p>
       {{ .TableOfContents }}
     </nav>
   </aside>

@@ -514,7 +514,15 @@ html { scroll-behavior: smooth; }
   .toc-title {
     margin: 0 0 .7rem; color: var(--accent);
     font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+    display: flex; justify-content: space-between; align-items: baseline; gap: .5rem;
+    white-space: nowrap;
   }
+  .toc-rail .toc-title a.toc-refs {
+    display: inline; padding: 0; font-size: .92em; letter-spacing: .06em; color: var(--muted);
+    text-decoration: none; transition: color .2s;
+  }
+  .toc-rail .toc-title a.toc-refs::before { content: none; }
+  .toc-rail .toc-title a.toc-refs:hover { color: var(--accent); transform: none; }
   .toc-rail ul { list-style: none; margin: 0; padding: 0; }
   .toc-rail li { margin: 0; }
   .toc-rail ul ul { padding-left: .75rem; }
