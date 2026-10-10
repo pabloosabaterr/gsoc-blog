@@ -514,7 +514,7 @@ html { scroll-behavior: smooth; }
   .toc-title {
     margin: 0 0 .7rem; color: var(--accent);
     font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
-    display: flex; justify-content: space-between; align-items: baseline; gap: .5rem;
+    display: flex; align-items: center; gap: .45rem;
     white-space: nowrap;
   }
   .toc-rail .toc-title a.toc-refs {
@@ -523,7 +523,8 @@ html { scroll-behavior: smooth; }
   }
   .toc-rail .toc-title a.toc-refs::before { content: none; }
   .toc-rail .toc-title a.toc-refs:hover { color: var(--accent); transform: none; }
-  .toc-title .toc-links { display: inline-flex; align-items: center; gap: .3rem; padding-right: 3px; }
+  .toc-title .toc-links { display: inline-flex; align-items: center; gap: .45rem; padding-right: 3px; }
+  .toc-title .toc-gh .gh-mark { width: 1.35em; height: 1.35em; }
   .toc-rail .toc-title a.toc-gh { display: inline-flex; align-self: center; padding: 0; color: var(--muted); transition: color .2s; }
   .toc-rail .toc-title a.toc-gh::before { content: none; }
   .toc-rail .toc-title a.toc-gh:hover { color: var(--accent); transform: none; }
@@ -715,7 +716,7 @@ img.zoomable:hover { transform: scale(1.005); }
   .toc-side { display: none; }
 }
 @media (min-width: 1280px) {
-  .toc-side { left: calc(100% + (var(--content) - var(--reading)) / 2 + .8rem); width: 11.45rem; }
+  .toc-side { left: calc(100% + (var(--content) - var(--reading)) / 2 + .6rem); width: 11.65rem; }
   .sn-body { width: 10rem; margin-left: calc(-1 * ((var(--content) - var(--reading)) / 2 + 1.75rem + 10rem)); }
 }
 @media (min-width: 1260px) and (max-width: 1279.98px) {
