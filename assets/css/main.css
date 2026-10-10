@@ -838,6 +838,8 @@ img.zoomable:hover { transform: scale(1.005); }
 .repo-line .k { color: var(--accent); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; margin-right: .3rem; }
 .repo-line a { display: inline-flex; align-items: center; gap: .4em; vertical-align: -.1em; color: var(--fg); text-decoration: none; font-family: var(--mono); font-size: .85rem; transition: color .2s; }
 .repo-line a:hover { color: var(--accent); }
+.repo-line-end { margin-top: 3rem; }
+.repo-line-end + .references { margin-top: 2.2rem; }
 
 /* <u>text</u>: a red wavy underline, so it never reads as a link. */
 .prose u {

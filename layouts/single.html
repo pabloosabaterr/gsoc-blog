@@ -49,13 +49,15 @@
   <div class="prose">
     {{ .Content }}
   </div>
-  {{- if $isPost }}{{ partial "references.html" . }}{{ end }}
+  {{- if $isPost }}
+  {{- with $repoURL }}
+  <p class="repo-line repo-line-end"><span class="k">Code</span> <a href="{{ . }}">{{ partial "github-mark.html" }}<span>{{ $repoName }}</span></a></p>
+  {{- end }}
+  {{- partial "references.html" . }}
+  {{- end }}
 
   {{- if $isPost }}
   <footer class="post-foot">
-    {{- with $repoURL }}
-    <p class="repo-line"><span class="k">Code</span> <a href="{{ . }}">{{ partial "github-mark.html" }}<span>{{ $repoName }}</span></a></p>
-    {{- end }}
     {{- range .GetTerms "projects" }}
     {{- $list := .Pages.ByDate }}
     {{- $i := 0 }}{{ range $k, $p := $list }}{{ if eq $p $ }}{{ $i = add $k 1 }}{{ end }}{{ end }}
