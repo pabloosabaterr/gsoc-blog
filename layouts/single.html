@@ -39,7 +39,7 @@
   {{- if $showToc }}
   <aside class="toc-side" aria-label="Contents">
     <nav class="toc-rail">
-      <p class="toc-title"><span>Contents</span><span class="toc-links">{{ with .Params.references }}<a class="toc-refs" href="#references">References</a>{{ end }}{{ with $repoURL }}<a class="toc-gh" href="{{ . }}" aria-label="Code on GitHub: {{ $repoName }}" title="{{ $repoName }}">{{ partial "github-mark.html" }}</a>{{ end }}</span></p>
+      <p class="toc-title"><span>Contents</span>{{ with .Params.references }}<a class="toc-refs" href="#references">References</a>{{ end }}</p>
       {{ .TableOfContents }}
     </nav>
   </aside>
