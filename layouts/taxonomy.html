@@ -2,7 +2,10 @@
 <h1 class="page-title">{{ .Title }}</h1>
 <ul class="terms">
   {{- range .Data.Terms.Alphabetical }}
+  {{- /* Skip terms whose only posts are shared privately. */}}
+  {{- if .Page.Pages }}
   <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> <span class="count">{{ .Count }}</span></li>
+  {{- end }}
   {{- end }}
 </ul>
 {{ end }}

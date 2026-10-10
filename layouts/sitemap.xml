@@ -1,0 +1,15 @@
+{{- /* Like Hugo's built-in sitemap, but leaves out tag and project pages
+       whose only posts are shared privately. */ -}}
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {{- range where site.Pages "Sitemap.Disable" "ne" true }}
+  {{- if or .IsPage .IsHome .Pages .File }}
+  <url>
+    <loc>{{ .Permalink }}</loc>
+    {{- if not .Lastmod.IsZero }}
+    <lastmod>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</lastmod>
+    {{- end }}
+  </url>
+  {{- end }}
+  {{- end }}
+</urlset>

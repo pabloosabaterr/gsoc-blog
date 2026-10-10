@@ -9,6 +9,9 @@
 <meta name="description" content="{{ $desc }}">
 <meta name="author" content="{{ site.Params.author }}">
 <link rel="canonical" href="{{ .Permalink }}">
+{{- if .Params.share }}
+<meta name="robots" content="noindex, nofollow">
+{{- end }}
 {{- with .OutputFormats.Get "rss" }}
 <link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}">
 {{- else }}

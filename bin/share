@@ -1,0 +1,65 @@
+#!/bin/sh
+# Shares a post through a secret link, or publishes it for real.
+#
+#   bin/share content/posts/my-post.md            prints its secret link (creates it the first time)
+#   bin/share --publish content/posts/my-post.md  removes the secret link so the post is listed normally
+#
+# A shared post is built, but it never shows up in lists, tags, projects,
+# RSS or the sitemap, and search engines are told not to index it.
+set -eu
+
+site="https://pablosabater.dev"
+publish=0
+if [ "${1:-}" = "--publish" ]; then publish=1; shift; fi
+file="${1:-}"
+if [ -z "$file" ] || [ ! -f "$file" ]; then
+  echo "usage: bin/share [--publish] content/posts/my-post.md" >&2
+  exit 1
+fi
+if [ "$(head -n 1 "$file")" != "+++" ]; then
+  echo "bin/share: $file has no +++ front matter" >&2
+  exit 1
+fi
+
+tmp="$file.tmp.$$"
+existing=$(sed -n "s#^url = '\(/s/[a-z0-9]*/\)'\$#\1#p" "$file" | head -n 1)
+
+if [ "$publish" -eq 1 ]; then
+  if [ -z "$existing" ]; then echo "bin/share: $file is not shared"; exit 0; fi
+  awk '
+    NR == 1 { print; fm = 1; next }
+    fm && /^\+\+\+$/ { fm = 0 }
+    fm && /^share = true$/ { next }
+    fm && /^url = '\''\/s\// { next }
+    fm && /^\[build\]$/ { skipbuild = 1; next }
+    skipbuild && /^  list = '\''never'\''$/ { skipbuild = 0; next }
+    { skipbuild = 0; print }
+  ' "$file" > "$tmp" && mv "$tmp" "$file"
+  echo "Published: $file is no longer behind a secret link."
+  exit 0
+fi
+
+if [ -n "$existing" ]; then
+  echo "$site$existing"
+  echo "local: http://localhost:1313$existing"
+  exit 0
+fi
+
+token=$(LC_ALL=C tr -dc 'a-z0-9' < /dev/urandom | head -c 12)
+awk -v token="$token" '
+  function insert() {
+    print "share = true"
+    print "url = '\''/s/" token "/'\''"
+    print "[build]"
+    print "  list = '\''never'\''"
+    done = 1
+  }
+  NR == 1 { print; fm = 1; next }
+  fm && !done && (/^\+\+\+$/ || /^[ \t]*\[/) { insert() }
+  fm && /^\+\+\+$/ { fm = 0 }
+  fm && /^draft = true$/ { print "draft = false"; next }
+  { print }
+' "$file" > "$tmp" && mv "$tmp" "$file"
+
+echo "$site/s/$token/"
+echo "local: http://localhost:1313/s/$token/"

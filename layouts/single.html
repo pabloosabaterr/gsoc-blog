@@ -23,6 +23,9 @@
     <p class="repo-link"><a href="{{ . }}">{{ partial "github-mark.html" }}<span>{{ $repoName }}</span></a></p>
     {{- end }}
   </header>
+  {{- if .Params.share }}
+  <p class="share-note">Draft, shared privately. Please don't pass this link around.</p>
+  {{- end }}
   {{- with .Params.epigraph }}
   <blockquote class="epigraph">
     <p class="original" lang="es">{{ . }}.</p>
@@ -58,6 +61,7 @@
 
   {{- if $isPost }}
   <footer class="post-foot">
+    {{- if not .Params.share }}
     {{- range .GetTerms "projects" }}
     {{- $list := .Pages.ByDate }}
     {{- $i := 0 }}{{ range $k, $p := $list }}{{ if eq $p $ }}{{ $i = add $k 1 }}{{ end }}{{ end }}
@@ -79,6 +83,7 @@
       {{- with $prev }}<a class="prev" href="{{ .RelPermalink }}" rel="prev"><span class="k"><span class="arr" aria-hidden="true">←</span> Previous</span><span class="t">{{ .Title }}</span></a>{{ else }}<span></span>{{ end }}
       {{- with $next }}<a class="next" href="{{ .RelPermalink }}" rel="next"><span class="k">Next <span class="arr" aria-hidden="true">→</span></span><span class="t">{{ .Title }}</span></a>{{ end }}
     </nav>
+    {{- end }}
     {{- end }}
     {{- with .File }}
     <p class="edit"><a class="reply" href="{{ printf "mailto:%s?subject=%s" site.Params.email (replace (printf "Re: %s" $.Title | urlquery) "+" "%20") | safeURL }}">Reply by email</a> · Found a typo? <a href="{{ site.Params.repo }}/blob/main/content/{{ .Path }}">Edit this page on GitHub</a>.</p>
